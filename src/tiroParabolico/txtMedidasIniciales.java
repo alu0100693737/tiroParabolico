@@ -7,21 +7,22 @@ import javax.swing.JTextField;
 
 public class txtMedidasIniciales {
 	private ArrayList<JLabel> arrayMedidasIniciales;
-	private final static JLabel VELOCIDAD = new JLabel("Velocidad Inicial ");
-	private final static JLabel ANGULOINICIAL = new JLabel("Angulo Inicial ");
-	private final static JLabel ALTURAINICIAL = new JLabel("Altura Inicial ");
-	private final static JLabel MS = new JLabel("m/s");
-	private final static JLabel GRADOS = new JLabel("grados");
-	private final static JLabel METROS = new JLabel("m");
-	
+	private final static JLabel VELOCIDAD = new JLabel("Velocidad Inicial ms");
+	private final static JLabel ANGULOINICIAL = new JLabel("Angulo Inicial grados");
+	private final static JLabel ALTURAINICIAL = new JLabel("Altura Inicial m");
+	private final static JLabel MOSTRARVELOCIDADES = new JLabel("Mostrar velocidades");
+	private final static JLabel MOSTRARRASTRO = new JLabel("Mostrar rastro");
+	private final static JLabel MOSTRARVECTORPOSICION = new JLabel("Mostrar vector de posicion");
+
 	public txtMedidasIniciales() {
 		arrayMedidasIniciales = new ArrayList<JLabel>();
 		getArrayMedidasIniciales().add(VELOCIDAD);
-		getArrayMedidasIniciales().add(MS);
+		getArrayMedidasIniciales().add(MOSTRARVELOCIDADES);
 		getArrayMedidasIniciales().add(ANGULOINICIAL);
-		getArrayMedidasIniciales().add(GRADOS);
+		getArrayMedidasIniciales().add(MOSTRARRASTRO);
 		getArrayMedidasIniciales().add(ALTURAINICIAL);
-		getArrayMedidasIniciales().add(METROS);
+		getArrayMedidasIniciales().add(MOSTRARVECTORPOSICION);
+		
 	}
 	
 	public ArrayList<JLabel> getArrayMedidasIniciales() {

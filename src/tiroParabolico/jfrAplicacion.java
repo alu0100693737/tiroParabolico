@@ -10,15 +10,14 @@ import javax.swing.JFrame;
 
 public class jfrAplicacion extends JFrame {
 	private pnlAplicacion aplicacion;
-	private unionPaneles panelesinformacion;
+	private pnlOpciones opciones;
 	
 	public jfrAplicacion() {
 		setLayout(new BorderLayout(5, 5));
 		setAplicacion(new pnlAplicacion());
-		setPanelesInformacion(new unionPaneles());
-		getAplicacion().setBackground(Color.RED);
+		setOpciones(new pnlOpciones());
 		add(getAplicacion(), BorderLayout.CENTER);
-		add(getUnionPaneles(), BorderLayout.SOUTH);
+		add(getOpciones(), BorderLayout.SOUTH);
 	}
 	
 	public pnlAplicacion getAplicacion() {
@@ -29,11 +28,11 @@ public class jfrAplicacion extends JFrame {
 		aplicacion = valor;
 	}
 	
-	public unionPaneles getUnionPaneles() {
-		return panelesinformacion;
+	public pnlOpciones getOpciones() {
+		return opciones;
 	}
 	
-	public void setPanelesInformacion(unionPaneles valor) {
-		panelesinformacion = valor;
+	public void setOpciones(pnlOpciones valor) {
+		opciones = valor;
 	}
 }

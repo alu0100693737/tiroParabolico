@@ -1,6 +1,10 @@
 package tiroParabolico;
 
+import java.awt.BorderLayout;
 import java.awt.Checkbox;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.Scrollbar;
 
@@ -16,19 +20,17 @@ public class pnlOpciones extends JPanel {
 	private txtMedidasIniciales arrayMedidasIniciales;
 	
 	public pnlOpciones() {
-		setLayout(new GridLayout(3, 4, 5, 5));
+		setPreferredSize(new Dimension(800, 150));
+		//setLayout(new GridLayout(2, 1, 5, 5));
+		
+		setLayout(new GridLayout(3, 1, 5, 5));
 		setArrayBotones(new botonContainer());
 		setArrayMedidasIniciales(new txtMedidasIniciales());
-		int contador = 0;
-		for (int i = 0; i < FILAS; i++) {
-			add(getArrayBotones().getArraybtn().get(i));
-			add(getArrayMedidasIniciales().getArrayMedidasIniciales().get(contador));
-			contador++;
-			add(getArrayMedidasIniciales().getArrayMedidasIniciales().get(contador));
-			add(new JSlider());
-			add(new Checkbox());
-		}
-		
+		System.out.println(getArrayMedidasIniciales().getArrayMedidasIniciales().size());
+		setBackground(Color.WHITE);
+		add(new subpnlOpciones1(0, 0, getArrayBotones(), getArrayMedidasIniciales()));
+		add(new subpnlOpciones1(2, 1, getArrayBotones(), getArrayMedidasIniciales()));
+		add(new subpnlOpciones1(4, 2, getArrayBotones(), getArrayMedidasIniciales()));
 		
 	}
 	
