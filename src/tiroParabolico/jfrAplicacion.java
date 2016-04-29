@@ -1,6 +1,8 @@
 package tiroParabolico;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.LayoutManager;
 
@@ -8,18 +10,15 @@ import javax.swing.JFrame;
 
 public class jfrAplicacion extends JFrame {
 	private pnlAplicacion aplicacion;
-	private pnlOpciones opciones;
-	private pnlInformacion informacion;
+	private unionPaneles panelesinformacion;
 	
 	public jfrAplicacion() {
-		setLayout(new GridLayout(3, 1, 5, 5));
+		setLayout(new BorderLayout(5, 5));
 		setAplicacion(new pnlAplicacion());
-		setOpciones(new pnlOpciones());
-		setInformacion(new pnlInformacion());
+		setPanelesInformacion(new unionPaneles());
 		getAplicacion().setBackground(Color.RED);
-		add(getAplicacion());
-		add(getOpciones());
-		add(getInformacion());
+		add(getAplicacion(), BorderLayout.CENTER);
+		add(getUnionPaneles(), BorderLayout.SOUTH);
 	}
 	
 	public pnlAplicacion getAplicacion() {
@@ -30,20 +29,11 @@ public class jfrAplicacion extends JFrame {
 		aplicacion = valor;
 	}
 	
-	public pnlOpciones getOpciones() {
-		return opciones;
+	public unionPaneles getUnionPaneles() {
+		return panelesinformacion;
 	}
 	
-	public void setOpciones(pnlOpciones valor) {
-		opciones = valor;
+	public void setPanelesInformacion(unionPaneles valor) {
+		panelesinformacion = valor;
 	}
-	
-	public pnlInformacion getInformacion() {
-		return informacion;
-	}
-	
-	public void setInformacion(pnlInformacion valor) {
-		informacion = valor;
-	}
-
 }

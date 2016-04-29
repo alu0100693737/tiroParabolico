@@ -6,13 +6,13 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 
 public class botonContainer {
-	ArrayList<JButton> botones;
+	ArrayList<boton> botones;
 	private boton lanzar;
 	private boton pausa;
 	private boton borrar;
 	
 	public botonContainer() {
-		botones = new ArrayList<JButton>();
+		botones = new ArrayList<boton>();
 		lanzar = new boton("Lanzar");
 		pausa = new boton("Pausa");
 		borrar = new boton("Borrar");
@@ -38,11 +38,11 @@ public class botonContainer {
 		return pausa;
 	}
 	
-	public JButton getBorrar() {
+	public boton getBorrar() {
 		return borrar;
 	}
 	
-	public ArrayList<JButton> getArraybtn() {
+	public ArrayList<boton> getArraybtn() {
 		return botones;
 	}
 }
