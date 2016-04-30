@@ -11,30 +11,31 @@ import javax.swing.JPanel;
 
 public class pnlInformacion extends JPanel {
 	
-	private final static JLabel TIEMPO = new JLabel("t = ");
-	private final static JLabel X = new JLabel("x = ");
-	private final static JLabel Y = new JLabel("y = ");
-	private final static JLabel VX = new JLabel("vx = ");
-	private final static JLabel VY = new JLabel("vy = ");
-	private final static JLabel VELOCIDAD = new JLabel("v = ");
-	private final static JLabel YMAX = new JLabel("y-max = ");
-	private final static JLabel SEGUNGOS = new JLabel("s");
-	private final static JLabel METROS = new JLabel("m");
-	private final static JLabel METROS_SEGUNDO = new JLabel("m/s");
+	private final static etiqueta TIEMPO = new etiqueta("t = ");
+	private final static etiqueta X = new etiqueta("x = ");
+	private final static etiqueta Y = new etiqueta("y = ");
+	private final static etiqueta VX = new etiqueta("vx = ");
+	private final static etiqueta VY = new etiqueta("vy = ");
+	private final static etiqueta VELOCIDAD = new etiqueta("v = ");
+	private final static etiqueta YMAX = new etiqueta("y-max = ");
+	private final static etiqueta SEGUNGOS = new etiqueta("s");
+	private final static etiqueta METROS = new etiqueta("m");
+	private final static etiqueta METROS_SEGUNDO = new etiqueta("m/s");
 	
-	private JPanel tiempo, posicionX, posicionY, velocidadX, velocidadY, velocidad, YMax;
-	private JLabel valorTiempo, valorX, valorY, vx, vy, v, y_max;
+	private subpanelinfo tiempo, posicionX, posicionY, velocidadX, velocidadY, velocidad, YMax;
+	private etiqueta valorTiempo, valorX, valorY, vx, vy, v, y_max;
 	
 	public pnlInformacion(double vel) {
 		setLayout(new GridLayout(7, 1));
+		setPreferredSize(new Dimension(200, 80));
 		setBorder(BorderFactory.createLineBorder(Color.black));
-		tiempo = new JPanel();
-		posicionX = new JPanel();
-		posicionY = new JPanel();
-		velocidadX = new JPanel();
-		velocidadY = new JPanel();
-		velocidad = new JPanel();
-		YMax = new JPanel();
+		tiempo = new subpanelinfo();
+		posicionX = new subpanelinfo();
+		posicionY = new subpanelinfo();
+		velocidadX = new subpanelinfo();
+		velocidadY = new subpanelinfo();
+		velocidad = new subpanelinfo();
+		YMax = new subpanelinfo();
 		jlbsetValorTiempo(vel); 
 		jlbsetValorX(0); jlbsetValorY(0);
 		jlbsetVX(0); jlbsetVY(0);
@@ -65,90 +66,98 @@ public class pnlInformacion extends JPanel {
 		getVelocidadY().add(METROS_SEGUNDO);
 		add(getVelocidadY());
 		
-		setPreferredSize(new Dimension(300, 200));
+		getVelocidad().add(VELOCIDAD);
+		getVelocidad().add(jlbgetV());
+		getVelocidad().add(METROS_SEGUNDO);
+		add(getVelocidad());
+		
+		getYMax().add(YMAX);
+		getYMax().add(jlbgetYMax());
+		getYMax().add(METROS);
+		add(getYMax());
 	}
 	
-	public JLabel jlbgetValorTiempo() {
+	public etiqueta jlbgetValorTiempo() {
 		return valorTiempo;
 	}
 	
 	public void jlbsetValorTiempo(double tiempo) {
-		valorTiempo = new JLabel(String.valueOf(tiempo));
+		valorTiempo = new etiqueta(String.valueOf(tiempo));
 	}
 	
-	public JLabel jlbgetValorX() {
+	public etiqueta jlbgetValorX() {
 		return valorX;
 	}
 	
 	public void jlbsetValorX(int valor) {
-		valorX = new JLabel(String.valueOf(valor));
+		valorX = new etiqueta(String.valueOf(valor));
 	}
 	
-	public JLabel jlbgetValorY() {
+	public etiqueta jlbgetValorY() {
 		return valorY;
 	}
 	
 	public void jlbsetValorY(int valor) {
-		valorY = new JLabel(String.valueOf(valor));
+		valorY = new etiqueta(String.valueOf(valor));
 	}
 	
-	public JLabel jlbgetVX() {
+	public etiqueta jlbgetVX() {
 		return vx;
 	}
 	
 	public void jlbsetVX(double valor) {
-		vx = new JLabel(String.valueOf(valor));
+		vx = new etiqueta(String.valueOf(valor));
 	}
 	
-	public JLabel jlbgetVY() {
+	public etiqueta jlbgetVY() {
 		return vy;
 	}
 	
 	public void jlbsetVY(double valor) {
-		vy = new JLabel(String.valueOf(valor));
+		vy = new etiqueta(String.valueOf(valor));
 	}
 	
-	public JLabel jlbgetV() {
+	public etiqueta jlbgetV() {
 		return v;
 	}
 	
 	public void jlbsetV(double valor) {
-		v = new JLabel(String.valueOf(valor));
+		v = new etiqueta(String.valueOf(valor));
 	}
 	
-	public JLabel jlbgetYMax() {
+	public etiqueta jlbgetYMax() {
 		return y_max;
 	}
 	
 	public void jlbsetYMax(double valor) {
-		y_max = new JLabel(String.valueOf(valor));
+		y_max = new etiqueta(String.valueOf(valor));
 	}
 	
-	public JPanel getTiempo() {
+	public subpanelinfo getTiempo() {
 		return tiempo;
 	}
 	
-	public JPanel getPosicionX() {
+	public subpanelinfo getPosicionX() {
 		return posicionX;
 	}
 	
-	public JPanel getPosicionY() {
+	public subpanelinfo getPosicionY() {
 		return posicionY;
 	}
 	
-	public JPanel getVelocidadX() {
+	public subpanelinfo getVelocidadX() {
 		return velocidadX;
 	}
 	
-	public JPanel getVelocidadY() {
+	public subpanelinfo getVelocidadY() {
 		return velocidadY;
 	}
 	
-	public JPanel getVelocidad() {
+	public subpanelinfo getVelocidad() {
 		return velocidad;
 	}
 	
-	public JPanel getYMax() {
+	public subpanelinfo getYMax() {
 		return YMax;
 	}
 }

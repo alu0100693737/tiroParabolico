@@ -19,13 +19,14 @@ public class jfrAplicacion extends JFrame {
 	public jfrAplicacion(double velocidad, int angulo, int altura) {
 		//inicializamos el modelo
 		setModelo(new ModeloTiroParabolico(velocidad, angulo, altura));
-		setLayout(new BorderLayout());
+		
 		setAplicacion(new pnlAplicacion());
-		informacion = new pnlInformacion(velocidad);
-		add(informacion, BorderLayout.EAST);
+		setInformacion(new pnlInformacion(velocidad));
+		setLayout(new BorderLayout());
 		setOpciones(new pnlOpciones());
 		add(getAplicacion(), BorderLayout.CENTER);
 		add(getOpciones(), BorderLayout.SOUTH);
+		add(getInformacion(), BorderLayout.EAST);
 	}
 	
 	public pnlAplicacion getAplicacion() {
@@ -42,6 +43,14 @@ public class jfrAplicacion extends JFrame {
 	
 	public void setOpciones(pnlOpciones valor) {
 		opciones = valor;
+	}
+	
+	public pnlInformacion getInformacion() {
+		return informacion;
+	}
+	
+	public void setInformacion(pnlInformacion valor) {
+		informacion = valor;
 	}
 	
 	public ModeloTiroParabolico getModelo() {

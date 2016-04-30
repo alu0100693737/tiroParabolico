@@ -8,6 +8,7 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.Scrollbar;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
@@ -21,12 +22,10 @@ public class pnlOpciones extends JPanel {
 	
 	public pnlOpciones() {
 		setPreferredSize(new Dimension(800, 150));
-		//setLayout(new GridLayout(2, 1, 5, 5));
-		
+		setBorder(BorderFactory.createLineBorder(Color.black));
 		setLayout(new GridLayout(3, 1, 5, 5));
 		setArrayBotones(new botonContainer());
 		setArrayMedidasIniciales(new txtMedidasIniciales());
-		System.out.println(getArrayMedidasIniciales().getArrayMedidasIniciales().size());
 		setBackground(Color.WHITE);
 		add(new subpnlOpciones1(0, 0, getArrayBotones(), getArrayMedidasIniciales()));
 		add(new subpnlOpciones1(2, 1, getArrayBotones(), getArrayMedidasIniciales()));
