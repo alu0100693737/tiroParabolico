@@ -9,7 +9,7 @@ public class ModeloTiroParabolico {
 	movimiento rectilíneo y uniforme a lo largo del eje X
 	uniformemente acelerado a lo largo del eje Y
 	 */
-	private final static double GRAVEDAD = -9.81;
+	private final static double GRAVEDAD = 9.81;
 	private static double velocidadInicial;
 	private static double anguloInicial;
 	private static double alturaInicial; //altura del objeto
@@ -21,40 +21,46 @@ public class ModeloTiroParabolico {
 	private ArrayList<Double> velocidades;
 	
 	public ModeloTiroParabolico(double velocidad, double angInicial, double alturaInicial) {
-		
 		setVelocidadInicial(velocidad);
 		setAnguloInicial(angInicial);
 		setAlturaInicial(alturaInicial);
 		
 		calcularVelocidadInicialX();
 		calcularVelocidadInicialY();
-
+		
+		System.out.println("Velocidad inicial: " + getVelocidadInicial());
+		System.out.println("Angulo inicial:" + getAnguloInicial());
+		System.out.println("Altura inicial:" + getAlturaInicial());
+		
+		System.out.println("VelocidadInicial X " + getVelocidadInicialX());
+		System.out.println("Velocidad Inicial Y" + getVelocidadInicialY());
 		setArrayPuntos(new ArrayList<Point>());
 		setArrayVelocidades(new ArrayList<Double>());
 	}
 	
 	public void calcularVelocidadInicialX() {
-		double x = getVelocidadInicial() * Math.cos(getAnguloInicial());
+		double x = getVelocidadInicial() * Math.cos(Math.toRadians(getAnguloInicial()));
 		setVelocidadInicialX(x);
 	}
 	
 	public void calcularVelocidadInicialY() {
-		double y = getVelocidadInicial() * Math.sin(getAnguloInicial());
+		double y = getVelocidadInicial() * Math.sin(Math.toRadians(getAnguloInicial()));
 		setVelocidadInicialY(y);
 	}
 	
 	//en X es constante
 	public double getcalcularVelocidadY(double tiempo) {
-		return (getVelocidadInicialY() + (-GRAVEDAD) * tiempo);
+		return (getVelocidadInicialY() + (-GRAVEDAD)* tiempo);
 	}
 	
-	public double getCalcularX(double tiempo) {
-		return (getVelocidadInicialX() * tiempo);
+	//entero y no double para almacenar en ArrayList<Point>
+	public int getCalcularX(double tiempo) {
+		return (int)(getVelocidadInicialX() * tiempo);
 	}
 	
-	public double getCalcularY(double tiempo) {
-		return(getAlturaInicial() + getVelocidadInicialY() * tiempo 
-															+ 1/2 * (-GRAVEDAD) * tiempo * tiempo);
+	public int getCalcularY(double tiempo) {
+		return (int)(getAlturaInicial() + getVelocidadInicialY() * tiempo 
+															+ (0.5 * (-GRAVEDAD) * tiempo * tiempo));
 	}	
 	
 	public double getCalcularVelocidad(double tiempo) {
@@ -68,14 +74,18 @@ public class ModeloTiroParabolico {
 	
 	
 	public void calcularPuntos() {
-	
-		
+		for(double i = 0; i < 3.6; i+= 0.2) {
+			getPuntos().add(new Point(getCalcularX(i), getCalcularY(i)));
+			getArrayVelocidades().add(getCalcularVelocidad(i));
+			System.out.println(getCalcularX(i) + " " + getCalcularY(i) + " Velocidad " + getCalcularVelocidad(i));
+		}
 	}
 	
-	public Point calcularNuevoPunto(double tiempo) {
+	/*public Point calcularNuevoPunto(double tiempo) {
+		
 		//double x = getVe
 		
-	}
+	}*/
 	public ArrayList<Point> getPuntos() {
 		return puntos;
 	}
@@ -129,21 +139,5 @@ public class ModeloTiroParabolico {
 	
 	public void setAnguloInicial(double valor) {
 		anguloInicial = valor;
-	}
-	
-	public double getPosicionX() {
-		return posicionX;
-	}
-	
-	public void setPosicion(double valor) {
-		posicionX = valor;
-	}
-	
-	public double getPosicionY() {
-		return posicionY;
-	}
-	
-	public void setPosicionY(double valor) {
-		posicionY = valor;
 	}
 }

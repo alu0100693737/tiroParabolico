@@ -11,7 +11,9 @@ public class Principal {
 		prueba.setLocationRelativeTo(null); // Center the frame
 		prueba.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		prueba.setVisible(true);
-		System.out.println("Ventana" + prueba.getWidth() + " " + prueba.getHeight());
+		ModeloTiroParabolico a = new ModeloTiroParabolico(20, 60, 0);
+		a.calcularPuntos();
+		//System.out.println("Ventana" + prueba.getWidth() + " " + prueba.getHeight());
 	}
 
 }
