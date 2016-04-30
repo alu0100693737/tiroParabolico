@@ -10,6 +10,7 @@ public class ModeloTiroParabolico {
 	uniformemente acelerado a lo largo del eje Y
 	 */
 	private final static double GRAVEDAD = 9.81;
+	private final static double PRECISION = 0.2;
 	private static double velocidadInicial;
 	private static double anguloInicial;
 	private static double alturaInicial; //altura del objeto
@@ -74,10 +75,12 @@ public class ModeloTiroParabolico {
 	
 	
 	public void calcularPuntos() {
-		for(double i = 0; i < 3.6; i+= 0.2) {
+		double i= 0;
+		while(getCalcularY(i) >= 0) {
 			getPuntos().add(new Point(getCalcularX(i), getCalcularY(i)));
 			getArrayVelocidades().add(getCalcularVelocidad(i));
 			System.out.println(getCalcularX(i) + " " + getCalcularY(i) + " Velocidad " + getCalcularVelocidad(i));
+			i+= PRECISION;
 		}
 	}
 	
