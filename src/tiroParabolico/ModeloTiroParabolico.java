@@ -21,7 +21,7 @@ public class ModeloTiroParabolico {
 	private ArrayList<Point> puntos;
 	private ArrayList<Double> velocidades;
 	
-	public ModeloTiroParabolico(double velocidad, double angInicial, double alturaInicial) {
+	public ModeloTiroParabolico(double velocidad, int angInicial, int alturaInicial) {
 		setVelocidadInicial(velocidad);
 		setAnguloInicial(angInicial);
 		setAlturaInicial(alturaInicial);
@@ -72,8 +72,6 @@ public class ModeloTiroParabolico {
 		return Math.sqrt(aux1 + aux2);
 	}
 	
-	
-	
 	public void calcularPuntos() {
 		double i= 0;
 		while(getCalcularY(i) >= 0) {
@@ -84,11 +82,6 @@ public class ModeloTiroParabolico {
 		}
 	}
 	
-	/*public Point calcularNuevoPunto(double tiempo) {
-		
-		//double x = getVe
-		
-	}*/
 	public ArrayList<Point> getPuntos() {
 		return puntos;
 	}

@@ -1,5 +1,6 @@
 package tiroParabolico;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GradientPaint;
@@ -15,8 +16,6 @@ public class pnlAplicacion extends JPanel {
 	private final static int PALITO = 5;
 	
 	public pnlAplicacion() {
-		System.out.println("pepe");
-		
 		setPreferredSize(new Dimension(800, 500));
 	}
 	public void paint(Graphics g){ 
