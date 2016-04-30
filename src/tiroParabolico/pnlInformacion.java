@@ -41,39 +41,39 @@ public class pnlInformacion extends JPanel {
 		jlbsetVX(0); jlbsetVY(0);
 		jlbsetV(0); jlbsetYMax(0);
 		
-		getTiempo().add(TIEMPO);
+		getTiempo().add(new etiqueta("t = "));
 		getTiempo().add(jlbgetValorTiempo());
-		getTiempo().add(SEGUNGOS);
+		getTiempo().add(new etiqueta("s"));
 		add(getTiempo());
 		
-		getPosicionX().add(X);
+		getPosicionX().add(new etiqueta("x = "));
 		getPosicionX().add(jlbgetValorX());
-		getPosicionX().add(METROS);
+		getPosicionX().add(new etiqueta("m"));
 		add(getPosicionX());
 		
-		getPosicionY().add(Y);
+		getPosicionY().add(new etiqueta("y"));
 		getPosicionY().add(jlbgetValorY());
-		getPosicionY().add(METROS);
+		getPosicionY().add(new etiqueta("m"));
 		add(getPosicionY());
 		
-		getVelocidadX().add(VX);
+		getVelocidadX().add(new etiqueta("vx"));
 		getVelocidadX().add(jlbgetVX());
-		getVelocidadX().add(METROS_SEGUNDO);
+		getVelocidadX().add(new etiqueta("m/s"));
 		add(getVelocidadX());
 		
-		getVelocidadY().add(VY);
+		getVelocidadY().add(new etiqueta("vy"));
 		getVelocidadY().add(jlbgetVY());
-		getVelocidadY().add(METROS_SEGUNDO);
+		getVelocidadY().add(new etiqueta("m/s"));
 		add(getVelocidadY());
 		
-		getVelocidad().add(VELOCIDAD);
+		getVelocidad().add(new etiqueta("v = "));
 		getVelocidad().add(jlbgetV());
-		getVelocidad().add(METROS_SEGUNDO);
+		getVelocidad().add(new etiqueta("m/s"));
 		add(getVelocidad());
 		
-		getYMax().add(YMAX);
+		getYMax().add(new etiqueta("ymax = "));
 		getYMax().add(jlbgetYMax());
-		getYMax().add(METROS);
+		getYMax().add(new etiqueta("m"));
 		add(getYMax());
 	}
 	

@@ -15,6 +15,6 @@ public class etiqueta extends JLabel {
 		setText(text);
 		setForeground(Color.BLACK);
 		setBackground(Color.WHITE);
-		setFont(new Font("Comic Sans MS", Font.BOLD, 18));
+		setFont(new Font("Comic Sans MS", Font.BOLD, 16));
 	}
 }

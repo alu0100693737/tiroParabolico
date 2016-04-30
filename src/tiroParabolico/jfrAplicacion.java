@@ -23,7 +23,7 @@ public class jfrAplicacion extends JFrame {
 		setAplicacion(new pnlAplicacion());
 		setInformacion(new pnlInformacion(velocidad));
 		setLayout(new BorderLayout());
-		setOpciones(new pnlOpciones());
+		setOpciones(new pnlOpciones(velocidad, angulo, altura));
 		add(getAplicacion(), BorderLayout.CENTER);
 		add(getOpciones(), BorderLayout.SOUTH);
 		add(getInformacion(), BorderLayout.EAST);

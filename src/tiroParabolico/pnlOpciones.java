@@ -18,19 +18,18 @@ public class pnlOpciones extends JPanel {
 	
 	private final static int FILAS = 3;
 	private botonContainer arrayBotones;
-	private txtMedidasIniciales arrayMedidasIniciales;
+	private txtInfo arrayMedidasIniciales;
 	
-	public pnlOpciones() {
+	public pnlOpciones(double velocidad, int angulo, int altura) {
 		setPreferredSize(new Dimension(800, 150));
 		setBorder(BorderFactory.createLineBorder(Color.black));
 		setLayout(new GridLayout(3, 1, 5, 5));
 		setArrayBotones(new botonContainer());
-		setArrayMedidasIniciales(new txtMedidasIniciales());
+		setArrayMedidasIniciales(new txtInfo());
 		setBackground(Color.WHITE);
-		add(new subpnlOpciones1(0, 0, getArrayBotones(), getArrayMedidasIniciales()));
-		add(new subpnlOpciones1(2, 1, getArrayBotones(), getArrayMedidasIniciales()));
-		add(new subpnlOpciones1(4, 2, getArrayBotones(), getArrayMedidasIniciales()));
-		
+		add(new subpnlOpciones1(0, 0, getArrayBotones(), getArrayMedidasIniciales(), velocidad));
+		add(new subpnlOpciones1(2, 1, getArrayBotones(), getArrayMedidasIniciales(), angulo));
+		add(new subpnlOpciones1(4, 2, getArrayBotones(), getArrayMedidasIniciales(), altura));
 	}
 	
 	public botonContainer getArrayBotones() {
@@ -41,11 +40,11 @@ public class pnlOpciones extends JPanel {
 		arrayBotones = valor;
 	}
 	
-	public txtMedidasIniciales getArrayMedidasIniciales() {
+	public txtInfo getArrayMedidasIniciales() {
 		return arrayMedidasIniciales;
 	}
 	
-	public void setArrayMedidasIniciales(txtMedidasIniciales valor) {
+	public void setArrayMedidasIniciales(txtInfo valor) {
 		arrayMedidasIniciales = valor;
 	}
 }
