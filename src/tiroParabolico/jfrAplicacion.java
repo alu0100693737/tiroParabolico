@@ -5,6 +5,9 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.LayoutManager;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Random;
 
 import javax.jws.WebParam.Mode;
 import javax.swing.BorderFactory;
@@ -14,13 +17,9 @@ public class jfrAplicacion extends JFrame {
 	private pnlAplicacion aplicacion;
 	private pnlOpciones opciones;
 	private pnlInformacion informacion;
-	private ModeloTiroParabolico modelo;
 	
 	public jfrAplicacion(double velocidad, int angulo, int altura) {
-		//inicializamos el modelo
-		setModelo(new ModeloTiroParabolico(velocidad, angulo, altura));
-		
-		setAplicacion(new pnlAplicacion());
+		setAplicacion(new pnlAplicacion(velocidad, angulo, altura));
 		setInformacion(new pnlInformacion(velocidad));
 		setLayout(new BorderLayout());
 		setOpciones(new pnlOpciones(velocidad, angulo, altura));
@@ -29,6 +28,14 @@ public class jfrAplicacion extends JFrame {
 		add(getInformacion(), BorderLayout.EAST);
 	}
 	
+public static class lanzar implements ActionListener {
+
+		public void actionPerformed(ActionEvent arg0) {
+			/*getpnlAplicacion().
+			getVentana().getpnlOpciones().gettxtIntroducir().setBackground(colorNuevo);
+			getVentana().getpnlOpciones().getArrayButones().getColor().setBackground(colorNuevo);
+		*/}	
+	}
 	public pnlAplicacion getAplicacion() {
 		return aplicacion;
 	}
@@ -51,13 +58,5 @@ public class jfrAplicacion extends JFrame {
 	
 	public void setInformacion(pnlInformacion valor) {
 		informacion = valor;
-	}
-	
-	public ModeloTiroParabolico getModelo() {
-		return modelo;
-	}
-	
-	public void setModelo(ModeloTiroParabolico valor) {
-		modelo = valor;
 	}
 }

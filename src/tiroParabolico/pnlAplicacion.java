@@ -14,10 +14,24 @@ public class pnlAplicacion extends JPanel {
 	
 	private final static int MARGEN = 50;
 	private final static int PALITO = 5;
+	private final static int RADIO = 5;
 	
-	public pnlAplicacion() {
+	private ModeloTiroParabolico modelo;
+	
+	public pnlAplicacion(double velocidad, int angulo, int altura) {
 		setPreferredSize(new Dimension(800, 500));
+	//inicializamos el modelo
+			setModelo(new ModeloTiroParabolico(velocidad, angulo, altura));
 	}
+	
+	public ModeloTiroParabolico getModelo() {
+		return modelo;
+	}
+	
+	public void setModelo(ModeloTiroParabolico valor) {
+		modelo = valor;
+	}
+	
 	public void paint(Graphics g){ 
 		    Graphics2D g2 = (Graphics2D) g.create();
 		     System.out.println(getWidth()  + " " + getHeight());
@@ -37,5 +51,15 @@ public class pnlAplicacion extends JPanel {
 						g2.drawString(Integer.toString((i/10)) + "0", MARGEN - 30, getHeight() - i - MARGEN + PALITO);
 						}
 				}
+		    
+		    pintarLanzamiento(g2);
+	}
+	
+	public void pintarLanzamiento(Graphics2D g2) {
+		getModelo().calcularPuntos();
+		for (int i = 0; i < getModelo().getPuntos().size(); i++) {
+			g2.drawOval(MARGEN + getModelo().getPuntos().get(i).x, getHeight() - MARGEN - (int)getModelo().getAlturaInicial() - getModelo().getPuntos().get(i).y, RADIO, RADIO);
+			
+		}
 	}
 }
