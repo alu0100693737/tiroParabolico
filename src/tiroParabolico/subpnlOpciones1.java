@@ -6,6 +6,7 @@ import java.awt.FlowLayout;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 
+import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
 
@@ -18,10 +19,9 @@ public class subpnlOpciones1 extends JPanel {
 		setLayout(new GridLayout(1, 4, 5, 5));
 		System.out.println(boton + " " + indice);
 		
-		
 		add(botones.getArraybtn().get(boton));
 		add(texto.getArrayMedidasIniciales().get(indice));
-		setSlider(new JSlider());
+		setSlider(new JSlider(JSlider.HORIZONTAL, 0, 100, 0));
 		setCheckBox(new Checkbox());
 		
 		
@@ -30,7 +30,6 @@ public class subpnlOpciones1 extends JPanel {
 		aux.add(getCheckBox());
 		aux.add(texto.getArrayMedidasIniciales().get(indice + 1));
 		add(aux);
-		//add(texto.getArrayMedidasIniciales().get(indice + 1));
 		setBackground(Color.WHITE);
 	}
 	
@@ -40,6 +39,11 @@ public class subpnlOpciones1 extends JPanel {
 	
 	public void setSlider(JSlider valor) {
 		slider = valor;
+		getSlider().setMajorTickSpacing(10);
+		getSlider().setMinorTickSpacing(1);
+		getSlider().setPaintTicks(true);
+		getSlider().setPaintLabels(true);
+		getSlider().setBorder(BorderFactory.createEmptyBorder(0,0,10,0));
 	}
 	
 	public Checkbox getCheckBox() {
