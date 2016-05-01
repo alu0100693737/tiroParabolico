@@ -13,6 +13,8 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
 import javax.swing.JTextField;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 public class pnlOpciones extends JPanel {
 	
@@ -47,4 +49,5 @@ public class pnlOpciones extends JPanel {
 	public void setArrayMedidasIniciales(txtInfo valor) {
 		arrayMedidasIniciales = valor;
 	}
+	
 }

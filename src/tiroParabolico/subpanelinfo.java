@@ -21,7 +21,4 @@ public class subpanelinfo extends JPanel {
 		setBorder(compound);
 		setFont(new Font("Comic Sans MS", Font.BOLD, 18));
 	}
-	
-	
-
 }

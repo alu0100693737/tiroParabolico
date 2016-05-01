@@ -12,6 +12,9 @@ import java.util.Random;
 import javax.jws.WebParam.Mode;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
+import javax.swing.JSlider;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 public class jfrAplicacion extends JFrame {
 	private pnlAplicacion aplicacion;

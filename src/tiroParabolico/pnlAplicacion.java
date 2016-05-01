@@ -58,7 +58,7 @@ public class pnlAplicacion extends JPanel {
 	public void pintarLanzamiento(Graphics2D g2) {
 		getModelo().calcularPuntos();
 		for (int i = 0; i < getModelo().getPuntos().size(); i++) {
-			g2.drawOval(MARGEN + getModelo().getPuntos().get(i).x, getHeight() - MARGEN - (int)getModelo().getAlturaInicial() - getModelo().getPuntos().get(i).y, RADIO, RADIO);
+			g2.drawOval(MARGEN + getModelo().getPuntos().get(i).x, getHeight() - MARGEN - getModelo().getPuntos().get(i).y, RADIO, RADIO);
 			
 		}
 	}
