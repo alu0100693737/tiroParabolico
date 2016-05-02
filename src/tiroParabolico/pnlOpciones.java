@@ -22,6 +22,11 @@ public class pnlOpciones extends JPanel {
 	private botonContainer arrayBotones;
 	private txtInfo arrayMedidasIniciales;
 	
+	private static subpnlOpciones subpnlOpciones1;
+	private static subpnlOpciones subpnlOpciones2;
+	private static subpnlOpciones subpnlOpciones3;
+	
+	
 	public pnlOpciones(double velocidad, int angulo, int altura) {
 		setPreferredSize(new Dimension(800, 150));
 		setBorder(BorderFactory.createLineBorder(Color.black));
@@ -29,9 +34,13 @@ public class pnlOpciones extends JPanel {
 		setArrayBotones(new botonContainer());
 		setArrayMedidasIniciales(new txtInfo());
 		setBackground(Color.WHITE);
-		add(new subpnlOpciones1(0, 0, getArrayBotones(), getArrayMedidasIniciales(), velocidad));
-		add(new subpnlOpciones1(2, 1, getArrayBotones(), getArrayMedidasIniciales(), angulo));
-		add(new subpnlOpciones1(4, 2, getArrayBotones(), getArrayMedidasIniciales(), altura));
+		
+		subpnlOpciones1 = new subpnlOpciones(0, 0, getArrayBotones(), getArrayMedidasIniciales(), velocidad);
+		subpnlOpciones2 = new subpnlOpciones(2, 1, getArrayBotones(), getArrayMedidasIniciales(), angulo);
+		subpnlOpciones3 = new subpnlOpciones(4, 2, getArrayBotones(), getArrayMedidasIniciales(), altura);
+		add(subpnlOpciones1);
+		add(subpnlOpciones2);
+		add(subpnlOpciones3);
 	}
 	
 	public botonContainer getArrayBotones() {
@@ -49,5 +58,4 @@ public class pnlOpciones extends JPanel {
 	public void setArrayMedidasIniciales(txtInfo valor) {
 		arrayMedidasIniciales = valor;
 	}
-	
 }
