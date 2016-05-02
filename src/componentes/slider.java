@@ -1,4 +1,4 @@
-package tiroParabolico;
+package componentes;
 
 import javax.swing.BorderFactory;
 import javax.swing.JSlider;

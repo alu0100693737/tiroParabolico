@@ -18,9 +18,14 @@ import javax.swing.JSlider;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
+import componentes.arrayMedida;
+import componentes.botonContainer;
+import componentes.etiqueta;
+import componentes.txtInfo;
+
 public class subpnlOpciones extends JPanel {
 
-	
+
 	private JPanel panel2;
 	private etiqueta panel2jlb1;
 	private etiqueta panel2jlb2;
@@ -37,7 +42,7 @@ public class subpnlOpciones extends JPanel {
 		//boton
 		add(botones.getArraybtn().get(boton));
 		//botones.getArraybtn().get(boton).addActionListener(new pnlOpciones.botonListener());
-		
+
 
 		//panel2
 		setValorp2(new etiqueta(String.valueOf(dato)));
@@ -92,7 +97,7 @@ public class subpnlOpciones extends JPanel {
 	public etiqueta getValorp2() { 
 		return valorp2;
 	}
-	
+
 	public etiqueta getPanel2jlb1() {
 		return panel2jlb1;
 	}
@@ -100,7 +105,7 @@ public class subpnlOpciones extends JPanel {
 	public etiqueta getPanel2jlb2() {
 		return panel2jlb2;
 	}
-	
+
 	public void setValorp2(etiqueta valor) {
 		valorp2 = valor;
 	}
@@ -112,19 +117,18 @@ public class subpnlOpciones extends JPanel {
 	public void setCheckBox(Checkbox nuevo) {
 		checkbox = nuevo;
 	}
-	
+
 	private class SliderListener implements ChangeListener {
 		public void stateChanged(ChangeEvent e) {
-			System.out.println("syso" + e.getSource().getClass());
 			JSlider source = (JSlider)e.getSource();
-			//if (!source.getValueIsAdjusting()) {
+			if (!source.getValueIsAdjusting()) {
 				getPanel2().removeAll();
-				getPanel2().add(panel2jlb1);
+				getPanel2().add(getPanel2jlb1());
 				getPanel2().add(new etiqueta(String.valueOf((int)source.getValue())));
-				getPanel2().add(panel2jlb2);
+				getPanel2().add(getPanel2jlb2());
 				getPanel2().updateUI();
 				getPanel2().repaint();     
-				System.out.println("TUSO");
-		}   
+			} 
+		}
 	}
 }

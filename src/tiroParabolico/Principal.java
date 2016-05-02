@@ -11,5 +11,5 @@ public class Principal {
 		prueba.setLocationRelativeTo(null); // Center the frame
 		prueba.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		prueba.setVisible(true);
-		}
+	}
 }

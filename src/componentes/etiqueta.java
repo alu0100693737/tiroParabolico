@@ -1,4 +1,4 @@
-package tiroParabolico;
+package componentes;
 
 import java.awt.Color;
 import java.awt.Dimension;

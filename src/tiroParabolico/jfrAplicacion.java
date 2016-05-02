@@ -3,10 +3,12 @@ package tiroParabolico;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.LayoutManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.PaintEvent;
 import java.lang.reflect.GenericArrayType;
 import java.util.Random;
 
@@ -21,7 +23,7 @@ public class jfrAplicacion extends JFrame {
 	private static pnlAplicacion aplicacion;
 	private static pnlOpciones opciones;
 	private static pnlInformacion informacion;
-	
+
 	public jfrAplicacion(double velocidad, int angulo, int altura) {
 		setAplicacion(new pnlAplicacion(velocidad, angulo, altura));
 		setInformacion(new pnlInformacion(velocidad));
@@ -31,39 +33,39 @@ public class jfrAplicacion extends JFrame {
 		add(getOpciones(), BorderLayout.SOUTH);
 		add(getInformacion(), BorderLayout.EAST);
 	}
-	
-public static class lanzar implements ActionListener {
+
+	public static class lanzar implements ActionListener {
 
 		public void actionPerformed(ActionEvent arg0) {
 			/*getpnlAplicacion().
 			getVentana().getpnlOpciones().gettxtIntroducir().setBackground(colorNuevo);
 			getVentana().getpnlOpciones().getArrayButones().getColor().setBackground(colorNuevo);
-		*/}	
+			 */}	
 	}
 	public static  pnlAplicacion getAplicacion() {
 		return aplicacion;
 	}
-	
+
 	public void setAplicacion(pnlAplicacion valor) {
 		aplicacion = valor;
 	}
-	
+
 	public static pnlOpciones getOpciones() {
 		return opciones;
 	}
-	
+
 	public void setOpciones(pnlOpciones valor) {
 		opciones = valor;
 	}
-	
+
 	public static pnlInformacion getInformacion() {
 		return informacion;
 	}
-	
+
 	public void setInformacion(pnlInformacion valor) {
 		informacion = valor;
 	}
-	
+
 	public static class botonLanzarListener implements ActionListener {
 
 		@Override
@@ -76,7 +78,9 @@ public static class lanzar implements ActionListener {
 					getOpciones().getsubpnlOpciones2().getSlider().getValue() + " " +
 					getOpciones().getsubpnlOpciones3().getSlider().getValue());
 			getAplicacion().getModelo().calcularPuntos();
-			//getAplicacion().repaint();
+
+			getAplicacion().pintarLanzamiento();
+
 		}
 	}
 }
