@@ -7,6 +7,8 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.Scrollbar;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -41,6 +43,18 @@ public class pnlOpciones extends JPanel {
 		add(subpnlOpciones1);
 		add(subpnlOpciones2);
 		add(subpnlOpciones3);
+	}
+	
+	public subpnlOpciones getsubpnlOpciones1() {
+		return subpnlOpciones1;
+	}
+	
+	public subpnlOpciones getsubpnlOpciones2() {
+		return subpnlOpciones2;
+	}
+	
+	public subpnlOpciones getsubpnlOpciones3() {
+		return subpnlOpciones3;
 	}
 	
 	public botonContainer getArrayBotones() {

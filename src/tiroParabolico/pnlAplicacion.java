@@ -15,10 +15,12 @@ public class pnlAplicacion extends JPanel {
 	private final static int MARGEN = 50;
 	private final static int PALITO = 5;
 	private final static int RADIO = 5;
+	private boolean esBoton;
 	
 	private ModeloTiroParabolico modelo;
 	
 	public pnlAplicacion(double velocidad, int angulo, int altura) {
+		esBoton = false;
 		setPreferredSize(new Dimension(800, 500));
 	//inicializamos el modelo
 			setModelo(new ModeloTiroParabolico(velocidad, angulo, altura));
@@ -31,10 +33,15 @@ public class pnlAplicacion extends JPanel {
 	public void setModelo(ModeloTiroParabolico valor) {
 		modelo = valor;
 	}
-	
+	@Override
+	public void paintComponents(Graphics g) {
+		// TODO Auto-generated method stub
+		super.paintComponents(g);
+		Graphics2D g2 = (Graphics2D) g.create();
+		pintarLanzamiento(g2);
+	}
 	public void paint(Graphics g){ 
-		    Graphics2D g2 = (Graphics2D) g.create();
-		     System.out.println(getWidth()  + " " + getHeight());
+		Graphics2D g2 = (Graphics2D) g.create();
 		    g2.drawLine(MARGEN, getHeight() - MARGEN, MARGEN, MARGEN); 
 		    g2.drawLine(MARGEN, getHeight() - MARGEN, getWidth() - MARGEN, getHeight() - MARGEN ); 
 		    for (int i = MARGEN; i < (getWidth() - MARGEN ); i+=10) {
@@ -50,16 +57,23 @@ public class pnlAplicacion extends JPanel {
 					if((getHeight()- i) % 50 == 0) {
 						g2.drawString(Integer.toString((i/10)) + "0", MARGEN - 30, getHeight() - i - MARGEN + PALITO);
 						}
-				}
-		    
+				
 		    pintarLanzamiento(g2);
+		    }
 	}
 	
 	public void pintarLanzamiento(Graphics2D g2) {
 		getModelo().calcularPuntos();
 		for (int i = 0; i < getModelo().getPuntos().size(); i++) {
 			g2.drawOval(MARGEN + getModelo().getPuntos().get(i).x, getHeight() - MARGEN - getModelo().getPuntos().get(i).y, RADIO, RADIO);
-			
 		}
+	}
+	
+	public boolean getBoton() {
+		return esBoton;
+	}
+	
+	public void setBoton(boolean valor) {
+		esBoton = valor;
 	}
 }

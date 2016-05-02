@@ -6,6 +6,8 @@ import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.lang.reflect.GenericArrayType;
 
 import javax.swing.BorderFactory;
@@ -18,12 +20,13 @@ import javax.swing.event.ChangeListener;
 
 public class subpnlOpciones extends JPanel {
 
+	
 	private JPanel panel2;
 	private etiqueta panel2jlb1;
 	private etiqueta panel2jlb2;
-	private static etiqueta valorp2;
+	private etiqueta valorp2;
 
-	private static JSlider slider;
+	private JSlider slider;
 	private Checkbox checkbox;
 	private arrayMedida medidas = new arrayMedida();
 
@@ -33,6 +36,8 @@ public class subpnlOpciones extends JPanel {
 
 		//boton
 		add(botones.getArraybtn().get(boton));
+		//botones.getArraybtn().get(boton).addActionListener(new pnlOpciones.botonListener());
+		
 
 		//panel2
 		setValorp2(new etiqueta(String.valueOf(dato)));
@@ -63,7 +68,7 @@ public class subpnlOpciones extends JPanel {
 		return medidas;
 	}
 
-	public static JSlider getSlider() {
+	public JSlider getSlider() {
 		return slider;
 	}
 
@@ -84,7 +89,7 @@ public class subpnlOpciones extends JPanel {
 		panel2 = nuevo;
 	}
 
-	public static etiqueta getValorp2() { 
+	public etiqueta getValorp2() { 
 		return valorp2;
 	}
 	
@@ -96,7 +101,7 @@ public class subpnlOpciones extends JPanel {
 		return panel2jlb2;
 	}
 	
-	public static void setValorp2(etiqueta valor) {
+	public void setValorp2(etiqueta valor) {
 		valorp2 = valor;
 	}
 
@@ -107,7 +112,7 @@ public class subpnlOpciones extends JPanel {
 	public void setCheckBox(Checkbox nuevo) {
 		checkbox = nuevo;
 	}
-
+	
 	private class SliderListener implements ChangeListener {
 		public void stateChanged(ChangeEvent e) {
 			System.out.println("syso" + e.getSource().getClass());
