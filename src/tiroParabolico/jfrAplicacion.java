@@ -19,6 +19,8 @@ import javax.swing.JSlider;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
+import componentes.jlbEspaciado;
+
 public class jfrAplicacion extends JFrame {
 	private static pnlAplicacion aplicacion;
 	private static pnlOpciones opciones;
@@ -34,19 +36,11 @@ public class jfrAplicacion extends JFrame {
 		add(getInformacion(), BorderLayout.EAST);
 	}
 
-	public static class lanzar implements ActionListener {
-
-		public void actionPerformed(ActionEvent arg0) {
-			/*getpnlAplicacion().
-			getVentana().getpnlOpciones().gettxtIntroducir().setBackground(colorNuevo);
-			getVentana().getpnlOpciones().getArrayButones().getColor().setBackground(colorNuevo);
-			 */}	
-	}
 	public static  pnlAplicacion getAplicacion() {
 		return aplicacion;
 	}
 
-	public void setAplicacion(pnlAplicacion valor) {
+	public static void setAplicacion(pnlAplicacion valor) {
 		aplicacion = valor;
 	}
 
@@ -67,20 +61,25 @@ public class jfrAplicacion extends JFrame {
 	}
 
 	public static class botonLanzarListener implements ActionListener {
-
 		@Override
 		public void actionPerformed(ActionEvent e) { //velocidad, angulo y altura
-			getAplicacion().setModelo(new ModeloTiroParabolico(getOpciones().getsubpnlOpciones1().getSlider().getValue(), 
+			getAplicacion().getArrayTirosParabolicos().add(new ModeloTiroParabolico(getOpciones().getsubpnlOpciones1().getSlider().getValue(), 
 					getOpciones().getsubpnlOpciones2().getSlider().getValue(),
 					getOpciones().getsubpnlOpciones3().getSlider().getValue()));
-			System.out.println();
-			System.out.println("EYSSSS " + getOpciones().getsubpnlOpciones1().getSlider().getValue() + " " +
-					getOpciones().getsubpnlOpciones2().getSlider().getValue() + " " +
-					getOpciones().getsubpnlOpciones3().getSlider().getValue());
-			getAplicacion().getModelo().calcularPuntos();
 
-			getAplicacion().pintarLanzamiento();
+			getAplicacion().getArrayTirosParabolicos().get(getAplicacion().getArrayTirosParabolicos().size() - 1).calcularPuntos();
+			getAplicacion().pintarUltimoLanzamiento();
 
+		}
+	}
+	
+	public static class botonBorrarListener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			getAplicacion().getArrayTirosParabolicos().clear();	
+			getAplicacion().repaint();
+			
 		}
 	}
 }

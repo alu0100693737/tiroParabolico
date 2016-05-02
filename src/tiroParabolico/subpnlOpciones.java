@@ -35,14 +35,11 @@ public class subpnlOpciones extends JPanel {
 	private Checkbox checkbox;
 	private arrayMedida medidas = new arrayMedida();
 
-
 	public subpnlOpciones(int indice, int boton, botonContainer botones, txtInfo txttextos, double dato) {
 		setLayout(new GridLayout(1, 3, 5, 5));
 
 		//boton
 		add(botones.getArraybtn().get(boton));
-		//botones.getArraybtn().get(boton).addActionListener(new pnlOpciones.botonListener());
-
 
 		//panel2
 		setValorp2(new etiqueta(String.valueOf(dato)));
@@ -50,9 +47,9 @@ public class subpnlOpciones extends JPanel {
 		panel2jlb2 = getMedidas().getMedidas().get(boton);
 
 		setPanel2(new JPanel());
-		getPanel2().add(panel2jlb1);
+		getPanel2().add(getPanel2jlb1());
 		getPanel2().add(getValorp2());
-		getPanel2().add(panel2jlb2);
+		getPanel2().add(getPanel2jlb2());
 		add(getPanel2());
 
 		//slider
@@ -121,14 +118,14 @@ public class subpnlOpciones extends JPanel {
 	private class SliderListener implements ChangeListener {
 		public void stateChanged(ChangeEvent e) {
 			JSlider source = (JSlider)e.getSource();
-			if (!source.getValueIsAdjusting()) {
+			//if (!source.getValueIsAdjusting()) {
 				getPanel2().removeAll();
 				getPanel2().add(getPanel2jlb1());
 				getPanel2().add(new etiqueta(String.valueOf((int)source.getValue())));
 				getPanel2().add(getPanel2jlb2());
 				getPanel2().updateUI();
 				getPanel2().repaint();     
-			} 
+			//} 
 		}
 	}
 }

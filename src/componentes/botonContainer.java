@@ -10,9 +10,9 @@ import tiroParabolico.jfrAplicacion.botonLanzarListener;
 
 public class botonContainer {
 	ArrayList<boton> botones;
-	private boton lanzar;
-	private boton pausa;
-	private boton borrar;
+	private  static boton lanzar;
+	private static boton pausa;
+	private static boton borrar;
 
 	public botonContainer() {
 		botones = new ArrayList<boton>();
@@ -30,7 +30,7 @@ public class botonContainer {
 
 		getLanzar().addActionListener(new jfrAplicacion.botonLanzarListener());
 		//getPausa().addActionListener(new jfrAplicacion.botonPausaListener());;
-		//getBorrar().addActionListener(new jfrAplicacion.botonBorrarListener());
+		getBorrar().addActionListener(new jfrAplicacion.botonBorrarListener());
 
 		getArraybtn().add(getLanzar());
 		getArraybtn().add(getPausa());
