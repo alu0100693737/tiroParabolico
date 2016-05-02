@@ -27,10 +27,9 @@ public class pnlInformacion extends JPanel {
 	private subpanelinfo tiempo, posicionX, posicionY, velocidadX, velocidadY, velocidad, YMax;
 	private etiqueta valorTiempo, valorX, valorY, vx, vy, v, y_max;
 
-	public pnlInformacion(double vel) {
+	public pnlInformacion() {
 		setLayout(new GridLayout(7, 1));
 		setPreferredSize(new Dimension(200, 80));
-		setBorder(BorderFactory.createLineBorder(Color.black));
 		tiempo = new subpanelinfo();
 		posicionX = new subpanelinfo();
 		posicionY = new subpanelinfo();
@@ -38,7 +37,7 @@ public class pnlInformacion extends JPanel {
 		velocidadY = new subpanelinfo();
 		velocidad = new subpanelinfo();
 		YMax = new subpanelinfo();
-		jlbsetValorTiempo(vel); 
+		jlbsetValorTiempo(0); 
 		jlbsetValorX(0); jlbsetValorY(0);
 		jlbsetVX(0); jlbsetVY(0);
 		jlbsetV(0); jlbsetYMax(0);
@@ -53,14 +52,14 @@ public class pnlInformacion extends JPanel {
 		getPosicionX().add(new etiqueta("m"));
 		add(getPosicionX());
 
-		getPosicionY().add(new etiqueta("y"));
+		getPosicionY().add(new etiqueta("y = "));
 		getPosicionY().add(jlbgetValorY());
 		getPosicionY().add(new etiqueta("m"));
 		add(getPosicionY());
 
-		getVelocidadX().add(new etiqueta("vx"));
+		getVelocidadX().add(new etiqueta("vx = "));
 		getVelocidadX().add(jlbgetVX());
-		getVelocidadX().add(new etiqueta("m/s"));
+		getVelocidadX().add(new etiqueta("m/s = "));
 		add(getVelocidadX());
 
 		getVelocidadY().add(new etiqueta("vy"));

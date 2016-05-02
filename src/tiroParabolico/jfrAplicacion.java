@@ -24,16 +24,13 @@ import componentes.jlbEspaciado;
 public class jfrAplicacion extends JFrame {
 	private static pnlAplicacion aplicacion;
 	private static pnlOpciones opciones;
-	private static pnlInformacion informacion;
 
-	public jfrAplicacion(double velocidad, int angulo, int altura) {
-		setAplicacion(new pnlAplicacion(velocidad, angulo, altura));
-		setInformacion(new pnlInformacion(velocidad));
+	public jfrAplicacion() {
+		setAplicacion(new pnlAplicacion());
 		setLayout(new BorderLayout());
-		setOpciones(new pnlOpciones(velocidad, angulo, altura));
+		setOpciones(new pnlOpciones());
 		add(getAplicacion(), BorderLayout.CENTER);
 		add(getOpciones(), BorderLayout.SOUTH);
-		add(getInformacion(), BorderLayout.EAST);
 	}
 
 	public static  pnlAplicacion getAplicacion() {
@@ -50,14 +47,6 @@ public class jfrAplicacion extends JFrame {
 
 	public void setOpciones(pnlOpciones valor) {
 		opciones = valor;
-	}
-
-	public static pnlInformacion getInformacion() {
-		return informacion;
-	}
-
-	public void setInformacion(pnlInformacion valor) {
-		informacion = valor;
 	}
 
 	public static class botonLanzarListener implements ActionListener {

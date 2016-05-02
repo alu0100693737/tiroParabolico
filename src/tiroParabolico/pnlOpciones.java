@@ -32,7 +32,7 @@ public class pnlOpciones extends JPanel {
 	private static subpnlOpciones subpnlOpciones2;
 	private static subpnlOpciones subpnlOpciones3;
 
-	public pnlOpciones(double velocidad, int angulo, int altura) {
+	public pnlOpciones() {
 		setPreferredSize(new Dimension(800, 150));
 		setBorder(BorderFactory.createLineBorder(Color.black));
 		setLayout(new GridLayout(3, 1, 5, 5));
@@ -40,9 +40,9 @@ public class pnlOpciones extends JPanel {
 		setArrayMedidasIniciales(new txtInfo());
 		setBackground(Color.WHITE);
 
-		subpnlOpciones1 = new subpnlOpciones(0, 0, getArrayBotones(), getArrayMedidasIniciales(), velocidad);
-		subpnlOpciones2 = new subpnlOpciones(2, 1, getArrayBotones(), getArrayMedidasIniciales(), angulo);
-		subpnlOpciones3 = new subpnlOpciones(4, 2, getArrayBotones(), getArrayMedidasIniciales(), altura);
+		subpnlOpciones1 = new subpnlOpciones(0, 0, getArrayBotones(), getArrayMedidasIniciales(), 0);
+		subpnlOpciones2 = new subpnlOpciones(2, 1, getArrayBotones(), getArrayMedidasIniciales(), 0);
+		subpnlOpciones3 = new subpnlOpciones(4, 2, getArrayBotones(), getArrayMedidasIniciales(), 0);
 		add(getsubpnlOpciones1());
 		add(getsubpnlOpciones2());
 		add(getsubpnlOpciones3());

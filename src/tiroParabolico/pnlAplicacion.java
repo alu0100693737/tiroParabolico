@@ -22,20 +22,16 @@ public class pnlAplicacion extends JPanel {
 	private final static int FILTRORGB = 50;
 	private ModeloTiroParabolico modelo;
 	private ArrayList<ModeloTiroParabolico> arrayTirosParabolicos;
+	private static pnlInformacion informacion;
 
 	public pnlAplicacion() {
-		setPreferredSize(new Dimension(800, 500));
+		setLayout(null);
+		setPreferredSize(new Dimension(700, 400));
+		setSize(new Dimension(700, 400));
+		setInformacion(new pnlInformacion());
 		arrayTirosParabolicos = new ArrayList<ModeloTiroParabolico>();
-	}
-	
-	public pnlAplicacion(double velocidad, int angulo, int altura) {
-		setPreferredSize(new Dimension(800, 500));
-		arrayTirosParabolicos = new ArrayList<ModeloTiroParabolico>();
-		//creamos un primer tiro
-		getArrayTirosParabolicos().add(new ModeloTiroParabolico(velocidad, angulo, altura));
-		getArrayTirosParabolicos().get(getArrayTirosParabolicos().size() - 1).calcularPuntos();
-		getArrayTirosParabolicos().add(new ModeloTiroParabolico(40, 20, 54));
-		getArrayTirosParabolicos().get(getArrayTirosParabolicos().size() - 1).calcularPuntos();
+		getInformacion().setSize(150, 400);
+		add(getInformacion());
 	}
 
 	public ArrayList<ModeloTiroParabolico> getArrayTirosParabolicos() {
@@ -51,6 +47,7 @@ public class pnlAplicacion extends JPanel {
 	
 	@Override
 	public void paint(Graphics g) {
+		getInformacion().setBounds(getWidth() - 180, 0, 180, (int)(getHeight() * 0.65));
 		// TODO Auto-generated method stub
 		super.paint(g);
 		pintarEjes(g);
@@ -85,5 +82,13 @@ public class pnlAplicacion extends JPanel {
 			g2.fillOval(MARGEN + getArrayTirosParabolicos().get(getArrayTirosParabolicos().size() - 1).getPuntos().get(i).x, getHeight() - MARGEN - getArrayTirosParabolicos().get(getArrayTirosParabolicos().size() - 1).getPuntos().get(i).y, RADIO, RADIO);
 		}
 		g2.setColor(Color.BLACK);
+	}
+	
+	public static pnlInformacion getInformacion() {
+		return informacion;
+	}
+
+	public void setInformacion(pnlInformacion valor) {
+		informacion = valor;
 	}
 }
