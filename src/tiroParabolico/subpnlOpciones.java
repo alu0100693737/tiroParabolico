@@ -1,7 +1,9 @@
 package tiroParabolico;
 
+import java.awt.BorderLayout;
 import java.awt.Checkbox;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.GridBagLayout;
@@ -15,6 +17,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
+import javax.swing.JTextField;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
@@ -25,7 +28,14 @@ import componentes.txtInfo;
 
 public class subpnlOpciones extends JPanel {
 
-
+	private final static Color COLORP2= new Color(156, 255, 57);
+	private final static Color COLORSLIDER = new Color(129, 158, 239);
+	private final static Color COLORCHECKBOX = new Color(57, 255, 57);
+	
+	private JPanel panel1;
+	private JTextField introducir;
+	
+	
 	private JPanel panel2;
 	private etiqueta panel2jlb1;
 	private etiqueta panel2jlb2;
@@ -37,9 +47,8 @@ public class subpnlOpciones extends JPanel {
 
 	public subpnlOpciones(int indice, int boton, botonContainer botones, txtInfo txttextos, double dato) {
 		setLayout(new GridLayout(1, 3, 5, 5));
-
-		//boton
 		add(botones.getArraybtn().get(boton));
+
 
 		//panel2
 		setValorp2(new etiqueta(String.valueOf(dato)));
@@ -50,16 +59,19 @@ public class subpnlOpciones extends JPanel {
 		getPanel2().add(getPanel2jlb1());
 		getPanel2().add(getValorp2());
 		getPanel2().add(getPanel2jlb2());
+		getPanel2().setBackground(COLORP2);
 		add(getPanel2());
 
 		//slider
 		setSlider(new JSlider(JSlider.HORIZONTAL, 0, 100, 0));
+		getSlider().setBackground(COLORSLIDER);
 		add(getSlider());
 		getSlider().addChangeListener(new SliderListener());
 
 		//checkbox con jlb
 		setCheckBox(new Checkbox());
 		JPanel aux = new JPanel();
+		aux.setBackground(COLORCHECKBOX);
 		aux.add(getCheckBox());
 		aux.add(txttextos.getArrayMedidasIniciales().get(indice + 1));
 		add(aux);

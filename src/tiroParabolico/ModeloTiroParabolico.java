@@ -10,7 +10,7 @@ public class ModeloTiroParabolico {
 	uniformemente acelerado a lo largo del eje Y
 	 */
 	private final static double GRAVEDAD = 9.81;
-	private final static double PRECISION = 0.2;
+	private final static double PRECISION = 0.1;
 	private static double velocidadInicial;
 	private static double anguloInicial;
 	private static double alturaInicial; //altura del objeto

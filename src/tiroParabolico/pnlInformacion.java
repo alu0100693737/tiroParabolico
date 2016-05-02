@@ -2,6 +2,7 @@ package tiroParabolico;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Graphics;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 
@@ -13,23 +14,13 @@ import componentes.etiqueta;
 
 public class pnlInformacion extends JPanel {
 
-	private final static etiqueta TIEMPO = new etiqueta("t = ");
-	private final static etiqueta X = new etiqueta("x = ");
-	private final static etiqueta Y = new etiqueta("y = ");
-	private final static etiqueta VX = new etiqueta("vx = ");
-	private final static etiqueta VY = new etiqueta("vy = ");
-	private final static etiqueta VELOCIDAD = new etiqueta("v = ");
-	private final static etiqueta YMAX = new etiqueta("y-max = ");
-	private final static etiqueta SEGUNGOS = new etiqueta("s");
-	private final static etiqueta METROS = new etiqueta("m");
-	private final static etiqueta METROS_SEGUNDO = new etiqueta("m/s");
-
 	private subpanelinfo tiempo, posicionX, posicionY, velocidadX, velocidadY, velocidad, YMax;
 	private etiqueta valorTiempo, valorX, valorY, vx, vy, v, y_max;
 
 	public pnlInformacion() {
+		setBackground(Color.WHITE);
 		setLayout(new GridLayout(7, 1));
-		setPreferredSize(new Dimension(200, 80));
+		
 		tiempo = new subpanelinfo();
 		posicionX = new subpanelinfo();
 		posicionY = new subpanelinfo();
@@ -59,10 +50,10 @@ public class pnlInformacion extends JPanel {
 
 		getVelocidadX().add(new etiqueta("vx = "));
 		getVelocidadX().add(jlbgetVX());
-		getVelocidadX().add(new etiqueta("m/s = "));
+		getVelocidadX().add(new etiqueta("m/s"));
 		add(getVelocidadX());
 
-		getVelocidadY().add(new etiqueta("vy"));
+		getVelocidadY().add(new etiqueta("vy = "));
 		getVelocidadY().add(jlbgetVY());
 		getVelocidadY().add(new etiqueta("m/s"));
 		add(getVelocidadY());
@@ -76,6 +67,18 @@ public class pnlInformacion extends JPanel {
 		getYMax().add(jlbgetYMax());
 		getYMax().add(new etiqueta("m"));
 		add(getYMax());
+	}
+	
+	@Override
+	public void repaint() {
+		// TODO Auto-generated method stub
+		super.repaint();
+	}
+	
+	@Override
+	public void paintComponents(Graphics g) {
+		// TODO Auto-generated method stub
+		super.paintComponents(g);
 	}
 
 	public etiqueta jlbgetValorTiempo() {

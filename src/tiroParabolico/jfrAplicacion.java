@@ -51,7 +51,7 @@ public class jfrAplicacion extends JFrame {
 
 	public static class botonLanzarListener implements ActionListener {
 		@Override
-		public void actionPerformed(ActionEvent e) { //velocidad, angulo y altura
+		public void actionPerformed(ActionEvent e) { 
 			getAplicacion().getArrayTirosParabolicos().add(new ModeloTiroParabolico(getOpciones().getsubpnlOpciones1().getSlider().getValue(), 
 					getOpciones().getsubpnlOpciones2().getSlider().getValue(),
 					getOpciones().getsubpnlOpciones3().getSlider().getValue()));
