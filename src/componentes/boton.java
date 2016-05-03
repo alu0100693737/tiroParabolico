@@ -9,7 +9,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
 public class boton extends JButton {
-	private final static Color COLORBOTON = new Color(96, 164, 123);
+	private final static Color COLORBOTON = new Color(255, 255, 88);
 	public boton(String text) {
 		setText(text);
 		setForeground(Color.BLACK);

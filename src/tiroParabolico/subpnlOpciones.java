@@ -10,6 +10,8 @@ import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.lang.reflect.GenericArrayType;
 
 import javax.swing.BorderFactory;
@@ -31,11 +33,10 @@ public class subpnlOpciones extends JPanel {
 	private final static Color COLORP2= new Color(156, 255, 57);
 	private final static Color COLORSLIDER = new Color(129, 158, 239);
 	private final static Color COLORCHECKBOX = new Color(57, 255, 57);
-	
+	private static pnlEntradaDatos entradaDatos;
+
 	private JPanel panel1;
 	private JTextField introducir;
-	
-	
 	private JPanel panel2;
 	private etiqueta panel2jlb1;
 	private etiqueta panel2jlb2;
@@ -45,7 +46,7 @@ public class subpnlOpciones extends JPanel {
 	private Checkbox checkbox;
 	private arrayMedida medidas = new arrayMedida();
 
-	public subpnlOpciones(int indice, int boton, botonContainer botones, txtInfo txttextos, double dato) {
+	public subpnlOpciones(int indice, int boton, botonContainer botones, txtInfo txttextos, double dato,boolean tipoSubpanel) {
 		setLayout(new GridLayout(1, 3, 5, 5));
 		add(botones.getArraybtn().get(boton));
 
@@ -67,14 +68,20 @@ public class subpnlOpciones extends JPanel {
 		add(getSlider());
 		getSlider().addChangeListener(new SliderListener());
 
-		//checkbox con jlb
-		setCheckBox(new Checkbox());
-		JPanel aux = new JPanel();
-		aux.setBackground(COLORCHECKBOX);
-		aux.add(getCheckBox());
-		aux.add(txttextos.getArrayMedidasIniciales().get(indice + 1));
-		add(aux);
-		setBackground(Color.WHITE);
+
+		if(tipoSubpanel == false) { 										//panel con el ultimo elemento panel con checkbox
+			//checkbox con jlb
+			setCheckBox(new Checkbox());
+			JPanel aux = new JPanel();
+			aux.setBackground(COLORCHECKBOX);
+			aux.add(getCheckBox());
+			aux.add(txttextos.getArrayMedidasIniciales().get(indice + 1));
+			add(aux);
+			setBackground(Color.WHITE);
+		} else {
+			setEntradaDatos(new pnlEntradaDatos());
+			add(getEntradaDatos());
+		}
 	}
 
 	public arrayMedida getMedidas() {
@@ -118,6 +125,14 @@ public class subpnlOpciones extends JPanel {
 		valorp2 = valor;
 	}
 
+	public pnlEntradaDatos getEntradaDatos() {
+		return entradaDatos;
+	}
+
+	public void setEntradaDatos(pnlEntradaDatos valor) {
+		entradaDatos = valor;
+	}
+
 	public Checkbox getCheckBox() {
 		return checkbox;
 	}
@@ -130,13 +145,13 @@ public class subpnlOpciones extends JPanel {
 		public void stateChanged(ChangeEvent e) {
 			JSlider source = (JSlider)e.getSource();
 			//if (!source.getValueIsAdjusting()) {
-				getPanel2().removeAll();
-				getPanel2().add(getPanel2jlb1());
-				getPanel2().add(new etiqueta(String.valueOf((int)source.getValue())));
-				getPanel2().add(getPanel2jlb2());
-				getPanel2().updateUI();
-				getPanel2().repaint();     
-			//} 
+			getPanel2().removeAll();
+			getPanel2().add(getPanel2jlb1());
+			setValorp2(new etiqueta(String.valueOf((int)source.getValue())));
+			getPanel2().add(getValorp2());
+			getPanel2().add(getPanel2jlb2());
+			getPanel2().updateUI();
+			getPanel2().repaint();     
 		}
 	}
 }

@@ -60,13 +60,12 @@ public class jfrAplicacion extends JFrame {
 	public static class botonLanzarListener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) { 
-			getAplicacion().getArrayTirosParabolicos().add(new ModeloTiroParabolico(getOpciones().getsubpnlOpciones1().getSlider().getValue(), 
-					getOpciones().getsubpnlOpciones2().getSlider().getValue(),
-					getOpciones().getsubpnlOpciones3().getSlider().getValue()));
+			getAplicacion().getArrayTirosParabolicos().add(new ModeloTiroParabolico(Integer.parseInt(getOpciones().getsubpnlOpciones1().getValorp2().getText()), 
+					Integer.parseInt(getOpciones().getsubpnlOpciones2().getValorp2().getText()),
+					Integer.parseInt(getOpciones().getsubpnlOpciones3().getValorp2().getText())));
 
 			getAplicacion().getArrayTirosParabolicos().get(getAplicacion().getArrayTirosParabolicos().size() - 1).calcularPuntos();
 			getAplicacion().pintarUltimoLanzamiento();
-
 		}
 	}
 	
@@ -80,6 +79,12 @@ public class jfrAplicacion extends JFrame {
 				getAplicacion().getArrayTirosParabolicos().add(new ModeloTiroParabolico(getOpciones().getsubpnlOpciones1().getSlider().getValue(), 
 						getOpciones().getsubpnlOpciones2().getSlider().getValue(),
 						getOpciones().getsubpnlOpciones3().getSlider().getValue()));
+				System.out.println("HEYS");
+				System.out.println(getAplicacion().getArrayTirosParabolicos().get(getAplicacion().getArrayTirosParabolicos().size() -1).getVelocidadInicial());
+				System.out.println(getAplicacion().getArrayTirosParabolicos().get(getAplicacion().getArrayTirosParabolicos().size() -1).getAnguloInicial());
+				System.out.println(getAplicacion().getArrayTirosParabolicos().get(getAplicacion().getArrayTirosParabolicos().size() -1).getAlturaInicial());
+
+				
 				getAplicacion().getArrayTirosParabolicos().get(getAplicacion().getArrayTirosParabolicos().size() - 1).calcularPuntos();
 
 				getOpciones().getArrayBotones().getLanzar().setText("Lanzar");
