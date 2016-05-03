@@ -1,4 +1,4 @@
-package componentes;
+package tiroParabolico;
 
 import java.awt.Font;
 import java.util.ArrayList;

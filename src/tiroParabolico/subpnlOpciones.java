@@ -23,11 +23,6 @@ import javax.swing.JTextField;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-import componentes.arrayMedida;
-import componentes.botonContainer;
-import componentes.etiqueta;
-import componentes.txtInfo;
-
 public class subpnlOpciones extends JPanel {
 
 	private final static Color COLORP2= new Color(156, 255, 57);

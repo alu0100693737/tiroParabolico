@@ -6,8 +6,6 @@ import java.awt.GridLayout;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import componentes.etiqueta;
-
 public class pnlEntradaDatos extends JPanel {
 	
 	private JTextField entradaVelocidad;

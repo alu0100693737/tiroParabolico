@@ -21,10 +21,6 @@ import javax.swing.JTextField;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-import componentes.botonContainer;
-import componentes.etiqueta;
-import componentes.txtInfo;
-
 public class pnlOpciones extends JPanel {
 
 	private final static int FILAS = 3;

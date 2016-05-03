@@ -14,14 +14,13 @@ import java.util.Random;
 
 import javax.jws.WebParam.Mode;
 import javax.swing.BorderFactory;
+import javax.swing.JApplet;
 import javax.swing.JFrame;
 import javax.swing.JSlider;
 import javax.swing.Timer;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-
-import componentes.jlbEspaciado;
-
+ 
 public class jfrAplicacion extends JFrame {
 	private static pnlAplicacion aplicacion;
 	private static pnlOpciones opciones;
@@ -30,7 +29,7 @@ public class jfrAplicacion extends JFrame {
 	public jfrAplicacion() {
 		setAplicacion(new pnlAplicacion());
 		tempo = new Timer(100, new timerHandler());
-		
+
 		setLayout(new BorderLayout());
 		setOpciones(new pnlOpciones());
 		add(getAplicacion(), BorderLayout.CENTER);
@@ -52,7 +51,7 @@ public class jfrAplicacion extends JFrame {
 	public void setOpciones(pnlOpciones valor) {
 		opciones = valor;
 	}
-	
+
 	public static Timer getTempo() {
 		return tempo;
 	}
@@ -68,55 +67,59 @@ public class jfrAplicacion extends JFrame {
 			getAplicacion().pintarUltimoLanzamiento();
 		}
 	}
-	
-//Boton Lanzar, Pausar, Reanudar
+
+	//Boton Lanzar, Pausar, Reanudar
 	public static class buttonsHandler implements ActionListener  {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if(e.getSource() == getOpciones().getArrayBotones().getLanzar()) {
-
+				if(getOpciones().getsubpnlOpciones2().getCheckBox().getState()) {
+					getAplicacion().setpintarRastro(true);
+				} else {
+					getAplicacion().setpintarRastro(false);
+				}
+				getAplicacion().setColorBola();
 				getTempo().stop();
 				getAplicacion().getArrayTirosParabolicos().add(new ModeloTiroParabolico(Integer.parseInt(getOpciones().getsubpnlOpciones1().getValorp2().getText()), 
 						Integer.parseInt(getOpciones().getsubpnlOpciones2().getValorp2().getText()),
 						Integer.parseInt(getOpciones().getsubpnlOpciones3().getValorp2().getText())));
-				
+
 				getAplicacion().getArrayTirosParabolicos().get(getAplicacion().getArrayTirosParabolicos().size() - 1).calcularPuntos();
 
 				getOpciones().getArrayBotones().getLanzar().setText("Lanzar");
 				getAplicacion().setContadorBolaMovil(0);
 				getTempo().start();
+			}
+			else if (e.getSource() == getOpciones().getArrayBotones().getPausa()){
+				if (getTempo().isRunning()) {
+					getTempo().stop();
+					getOpciones().getArrayBotones().getPausa().setText("Reanudar");
 				}
-				else if (e.getSource() == getOpciones().getArrayBotones().getPausa()){
-					if (getTempo().isRunning()) {
-						getTempo().stop();
-						getOpciones().getArrayBotones().getPausa().setText("Reanudar");
-					}
-					else {
-						getTempo().start();
-						getOpciones().getArrayBotones().getPausa().setText("Pausar");
-					}
-				} else {
-					System.out.println("ERROR!");
+				else {
+					getTempo().start();
+					getOpciones().getArrayBotones().getPausa().setText("Pausar");
+				}
+			} else {
+				System.out.println("ERROR!");
 			}
 		}
 	}
-	
+
 	public static class timerHandler implements ActionListener {
-	//pinta elemento a elemento del camino
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				System.out.println("SEEE");
-				//calcula uno por uno
-				if(getAplicacion().getContadorBolaMovil() < getAplicacion().getArrayTirosParabolicos().get(getAplicacion().getArrayTirosParabolicos().size() - 1).getPuntos().size()) {
-					getAplicacion().pintarPuntoLanzamiento();
-					getAplicacion().setContadorBolaMovil(getAplicacion().getContadorBolaMovil() + 1); 
-				} else {
-					getAplicacion().setContadorBolaMovil(0);
-					getTempo().stop();
-				}
+		//pinta elemento a elemento del camino
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			//calcula uno por uno
+			if(getAplicacion().getContadorBolaMovil() < getAplicacion().getArrayTirosParabolicos().get(getAplicacion().getArrayTirosParabolicos().size() - 1).getPuntos().size()) {
+				getAplicacion().pintarPuntoLanzamiento();
+				getAplicacion().setContadorBolaMovil(getAplicacion().getContadorBolaMovil() + 1); 
+			} else {
+				getAplicacion().setContadorBolaMovil(0);
+				getTempo().stop();
 			}
 		}
-	
+	}
+
 	public static class botonBorrarListener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
