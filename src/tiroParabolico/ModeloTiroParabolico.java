@@ -77,7 +77,7 @@ public class ModeloTiroParabolico {
 		while(getCalcularY(i) >= 0) {
 			getPuntos().add(new Point(getCalcularX(i), getCalcularY(i)));
 			getArrayVelocidades().add(getCalcularVelocidad(i));
-			System.out.println(getCalcularX(i) + " " + getCalcularY(i) + " Velocidad " + getCalcularVelocidad(i));
+			//System.out.println(getCalcularX(i) + " " + getCalcularY(i) + " Velocidad " + getCalcularVelocidad(i));
 			i+= PRECISION;
 		}
 	}

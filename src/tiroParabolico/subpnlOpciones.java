@@ -49,7 +49,6 @@ public class subpnlOpciones extends JPanel {
 		setLayout(new GridLayout(1, 3, 5, 5));
 		add(botones.getArraybtn().get(boton));
 
-
 		//panel2
 		setValorp2(new etiqueta(String.valueOf(dato)));
 		panel2jlb1 = txttextos.getArrayMedidasIniciales().get(indice);

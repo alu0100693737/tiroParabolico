@@ -3,6 +3,7 @@ package tiroParabolico;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Graphics;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -22,5 +23,16 @@ public class subpanelinfo extends JPanel {
 		Border compound = new CompoundBorder(line, margin);
 		setBorder(compound);
 		setFont(new Font("Comic Sans MS", Font.BOLD, 18));
+	}
+	@Override
+	public void repaint() {
+		// TODO Auto-generated method stub
+		super.repaint();
+	}
+	
+	@Override
+	public void paintComponents(Graphics g) {
+		// TODO Auto-generated method stub
+		super.paintComponents(g);
 	}
 }

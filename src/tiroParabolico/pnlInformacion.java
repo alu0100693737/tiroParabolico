@@ -73,6 +73,7 @@ public class pnlInformacion extends JPanel {
 	public void repaint() {
 		// TODO Auto-generated method stub
 		super.repaint();
+		
 	}
 	
 	@Override

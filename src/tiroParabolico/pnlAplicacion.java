@@ -92,8 +92,13 @@ public class pnlAplicacion extends JPanel {
 		Graphics g2 = getGraphics();
 		g2.setColor(Color.RED);
 		getInformacion().jlbsetValorTiempo(getContadorBolaMovil() * 0.1);
-		getInformacion().updateUI();
+		getInformacion().jlbsetValorX(getArrayTirosParabolicos().get(getArrayTirosParabolicos().size() - 1).getPuntos().get(getContadorBolaMovil()).x);
+		getInformacion().jlbsetValorY(getHeight() - MARGEN - getArrayTirosParabolicos().get(getArrayTirosParabolicos().size() - 1).getPuntos().get(getContadorBolaMovil()).y);
+		getInformacion().jlbsetVX(getArrayTirosParabolicos().get(getArrayTirosParabolicos().size() - 1).getVelocidadInicialX());
+		getInformacion().jlbsetVY(getArrayTirosParabolicos().get(getArrayTirosParabolicos().size() - 1).getVelocidadInicialY());
+		getInformacion().jlbsetV(getArrayTirosParabolicos().get(getArrayTirosParabolicos().size() - 1).getCalcularVelocidad(getContadorBolaMovil() * 0.1));
 		g2.fillOval(MARGEN + getArrayTirosParabolicos().get(getArrayTirosParabolicos().size() - 1).getPuntos().get(getContadorBolaMovil()).x, getHeight() - MARGEN - getArrayTirosParabolicos().get(getArrayTirosParabolicos().size() - 1).getPuntos().get(getContadorBolaMovil()).y, RADIO, RADIO);
+		getInformacion().repaint();
 	}
 	
 	public static pnlInformacion getInformacion() {

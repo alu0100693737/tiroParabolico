@@ -28,8 +28,8 @@ public class botonContainer {
 		getPausa().setFont(new Font("Comic Sans MS", Font.BOLD, 18));
 		getBorrar().setFont(new Font("Comic Sans MS", Font.BOLD, 18));
 
-		getLanzar().addActionListener(new jfrAplicacion.botonLanzarListener());
-		//getPausa().addActionListener(new jfrAplicacion.botonPausaListener());;
+		getLanzar().addActionListener(new jfrAplicacion.buttonsHandler());
+		getPausa().addActionListener(new jfrAplicacion.buttonsHandler());;
 		getBorrar().addActionListener(new jfrAplicacion.botonBorrarListener());
 
 		getArraybtn().add(getLanzar());
