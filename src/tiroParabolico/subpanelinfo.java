@@ -1,11 +1,13 @@
+/** Ivan Garcia Campos   alu0100693737@ull.edu.es
+ * 05/05/16
+ * Programacion de aplicaciones interactivas
+ * 1.0v
+ * Clase subpanel del pnlInformacion
+ */
 package tiroParabolico;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.Graphics;
-
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 import javax.swing.border.CompoundBorder;

@@ -1,25 +1,18 @@
+/** Ivan Garcia Campos   alu0100693737@ull.edu.es
+ * 05/05/16
+ * Programacion de aplicaciones interactivas
+ * 1.0v
+ * Clase panel de opciones, 3 botones, 3 panel, 3 sliders, 3 checkbox + etiqueta
+ */
 package tiroParabolico;
 
-import java.awt.BorderLayout;
-import java.awt.Checkbox;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Graphics;
 import java.awt.GridLayout;
-import java.awt.Scrollbar;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-
 import javax.swing.BorderFactory;
-import javax.swing.JButton;
 import javax.swing.JPanel;
-import javax.swing.JSlider;
-import javax.swing.JTextField;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 
 public class pnlOpciones extends JPanel {
 
@@ -40,9 +33,9 @@ public class pnlOpciones extends JPanel {
 		setArrayMedidasIniciales(new txtInfo());
 		setBackground(Color.WHITE);
 
-		subpnlOpciones1 = new subpnlOpciones(0, 0, getArrayBotones(), getArrayMedidasIniciales(), 0, true);
-		subpnlOpciones2 = new subpnlOpciones(2, 1, getArrayBotones(), getArrayMedidasIniciales(), 0, false);
-		subpnlOpciones3 = new subpnlOpciones(4, 2, getArrayBotones(), getArrayMedidasIniciales(), 0, false);
+		subpnlOpciones1 = new subpnlOpciones(0, 0, getArrayBotones(), getArrayMedidasIniciales(), 0, 0);
+		subpnlOpciones2 = new subpnlOpciones(2, 1, getArrayBotones(), getArrayMedidasIniciales(), 0, 1);
+		subpnlOpciones3 = new subpnlOpciones(4, 2, getArrayBotones(), getArrayMedidasIniciales(), 0, 2);
 		getsubpnlOpciones1().getEntradaDatos().getEntradaVelocidad().addKeyListener(new pnlOpciones.escribirDatos());
 		getsubpnlOpciones2().getEntradaDatos().getEntradaAngulo().addKeyListener(new pnlOpciones.escribirDatos());
 		getsubpnlOpciones3().getEntradaDatos().getEntradaAltura().addKeyListener(new pnlOpciones.escribirDatos());

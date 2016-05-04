@@ -1,26 +1,16 @@
+/** Ivan Garcia Campos   alu0100693737@ull.edu.es
+ * 05/05/16
+ * Programacion de aplicaciones interactivas
+ * 1.0v
+ * Clase ventana de la aplicacion tiro parabolico
+ */
 package tiroParabolico;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.GridLayout;
-import java.awt.LayoutManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.PaintEvent;
-import java.lang.reflect.GenericArrayType;
-import java.util.ArrayList;
-import java.util.Random;
-
-import javax.jws.WebParam.Mode;
-import javax.swing.BorderFactory;
-import javax.swing.JApplet;
 import javax.swing.JFrame;
-import javax.swing.JSlider;
 import javax.swing.Timer;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
  
 public class jfrAplicacion extends JFrame {
 	private static pnlAplicacion aplicacion;

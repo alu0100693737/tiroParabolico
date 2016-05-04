@@ -1,16 +1,18 @@
+/** Ivan Garcia Campos   alu0100693737@ull.edu.es
+ * 05/05/16
+ * Programacion de aplicaciones interactivas
+ * 1.0v
+ * Clase panel para la representacion de la solucion, uso de 
+ * grafica, panel de informacion y bola
+ */
+
 package tiroParabolico;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.GradientPaint;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.PaintContext;
-import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.Random;
-
 import javax.swing.JPanel;
 
 public class pnlAplicacion extends JPanel {

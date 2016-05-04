@@ -1,3 +1,9 @@
+/** Ivan Garcia Campos   alu0100693737@ull.edu.es
+ * 05/05/16
+ * Programacion de aplicaciones interactivas
+ * 1.0v
+ * Clase Modelo del tiro parabolico
+ */
 package tiroParabolico;
 
 import java.awt.Point;

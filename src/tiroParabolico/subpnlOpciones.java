@@ -1,22 +1,15 @@
+/** Ivan Garcia Campos   alu0100693737@ull.edu.es
+ * 05/05/16
+ * Programacion de aplicaciones interactivas
+ * 1.0v
+ * Clase subpanel del pnlOpciones, se usan 3
+ */
 package tiroParabolico;
 
-import java.awt.BorderLayout;
 import java.awt.Checkbox;
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Graphics;
-import java.awt.GridBagLayout;
 import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.lang.reflect.GenericArrayType;
-
 import javax.swing.BorderFactory;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
 import javax.swing.JTextField;
@@ -28,6 +21,7 @@ public class subpnlOpciones extends JPanel {
 	private final static Color COLORP2= new Color(156, 255, 57);
 	private final static Color COLORSLIDER = new Color(129, 158, 239);
 	private final static Color COLORCHECKBOX = new Color(57, 255, 57);
+	private final static Color COLORNOMBRE = new Color(229, 255, 154);
 	private static pnlEntradaDatos entradaDatos;
 
 	private JPanel panel1;
@@ -41,7 +35,7 @@ public class subpnlOpciones extends JPanel {
 	private Checkbox checkbox;
 	private arrayMedida medidas = new arrayMedida();
 
-	public subpnlOpciones(int indice, int boton, botonContainer botones, txtInfo txttextos, double dato,boolean tipoSubpanel) {
+	public subpnlOpciones(int indice, int boton, botonContainer botones, txtInfo txttextos, double dato,int tipoSubpanel) {
 		setLayout(new GridLayout(1, 3, 5, 5));
 		add(botones.getArraybtn().get(boton));
 
@@ -64,7 +58,7 @@ public class subpnlOpciones extends JPanel {
 		getSlider().addChangeListener(new SliderListener());
 
 
-		if(tipoSubpanel == false) { 										//panel con el ultimo elemento panel con checkbox
+		if(tipoSubpanel == 1) { 										//panel con el ultimo elemento panel con checkbox
 			//checkbox con jlb
 			setCheckBox(new Checkbox());
 			JPanel aux = new JPanel();
@@ -73,9 +67,14 @@ public class subpnlOpciones extends JPanel {
 			aux.add(txttextos.getArrayMedidasIniciales().get(indice + 1));
 			add(aux);
 			setBackground(Color.WHITE);
-		} else {
+		} else if (tipoSubpanel == 0){
 			setEntradaDatos(new pnlEntradaDatos());
 			add(getEntradaDatos());
+		} else if(tipoSubpanel == 2) {
+			JPanel aux = new JPanel();
+			aux.setBackground(COLORNOMBRE);
+			aux.add(new etiqueta("Iván García Campos"));
+			add(aux);
 		}
 	}
 
