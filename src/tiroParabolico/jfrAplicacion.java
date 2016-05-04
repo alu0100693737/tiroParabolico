@@ -121,7 +121,7 @@ public class jfrAplicacion extends JFrame {
 				
 				getInformacion().jlbsetValorTiempo(Math.floor(getAplicacion().getContadorBolaMovil() * 0.1 * 100) / 100);
 				getInformacion().jlbsetValorX(getAplicacion().getArrayTirosParabolicos().get(getAplicacion().getArrayTirosParabolicos().size() - 1).getPuntos().get(getAplicacion().getContadorBolaMovil()).x);
-				getInformacion().jlbsetValorY(getAplicacion().getHeight() - getAplicacion().MARGEN - getAplicacion().getArrayTirosParabolicos().get(getAplicacion().getArrayTirosParabolicos().size() - 1).getPuntos().get(getAplicacion().getContadorBolaMovil()).y);
+				getInformacion().jlbsetValorY(getAplicacion().getArrayTirosParabolicos().get(getAplicacion().getArrayTirosParabolicos().size() - 1).getPuntos().get(getAplicacion().getContadorBolaMovil()).y);
 				getInformacion().jlbsetVX(Math.floor(getAplicacion().getArrayTirosParabolicos().get(getAplicacion().getArrayTirosParabolicos().size() - 1).getVelocidadInicialX()));
 				getInformacion().jlbsetVY(Math.floor(getAplicacion().getArrayTirosParabolicos().get(getAplicacion().getArrayTirosParabolicos().size() - 1).getVelocidadInicialY()));
 				getInformacion().jlbsetV(Math.floor(getAplicacion().getArrayTirosParabolicos().get(getAplicacion().getArrayTirosParabolicos().size() - 1).getCalcularVelocidad(Math.floor(getAplicacion().getContadorBolaMovil() * 0.1))));

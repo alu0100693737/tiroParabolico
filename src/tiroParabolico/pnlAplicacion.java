@@ -80,38 +80,6 @@ public class pnlAplicacion extends JPanel {
 	
 	public void pintarPuntoLanzamiento() {
 		Graphics g2 = getGraphics();
-		//add(getInformacion().getTiempo());
-
-	/*	getPosicionX().add(new etiqueta("x = "));
-		getPosicionX().add(jlbgetValorX());
-		getPosicionX().add(new etiqueta("m"));
-		add(getPosicionX());
-
-		getPosicionY().add(new etiqueta("y = "));
-		getPosicionY().add(jlbgetValorY());
-		getPosicionY().add(new etiqueta("m"));
-		add(getPosicionY());
-
-		getVelocidadX().add(new etiqueta("vx = "));
-		getVelocidadX().add(jlbgetVX());
-		getVelocidadX().add(new etiqueta("m/s"));
-		add(getVelocidadX());
-
-		getVelocidadY().add(new etiqueta("vy = "));
-		getVelocidadY().add(jlbgetVY());
-		getVelocidadY().add(new etiqueta("m/s"));
-		add(getVelocidadY());
-
-		getVelocidad().add(new etiqueta("v = "));
-		getVelocidad().add(jlbgetV());
-		getVelocidad().add(new etiqueta("m/s"));
-		add(getVelocidad());
-
-		getYMax().add(new etiqueta("ymax = "));
-		getYMax().add(jlbgetYMax());
-		getYMax().add(new etiqueta("m"));
-		add(getYMax());
-		*/
 		
 		if(!getpintarRastro())
 			paint(g2);

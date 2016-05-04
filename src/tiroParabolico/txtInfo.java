@@ -9,9 +9,6 @@ package tiroParabolico;
 
 import java.util.ArrayList;
 
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-
 public class txtInfo {
 	private ArrayList<etiqueta> arrayMedidasIniciales;
 	private final static etiqueta VELOCIDAD = new etiqueta("Velocidad Inicial ");
