@@ -9,10 +9,12 @@ package tiroParabolico;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.swing.JApplet;
 import javax.swing.JFrame;
 import javax.swing.Timer;
  
-public class jfrAplicacion extends JFrame {
+public class jfrAplicacion extends JApplet {
 	private static pnlAplicacion aplicacion;
 	private static pnlOpciones opciones;
 	private static Timer tempo;

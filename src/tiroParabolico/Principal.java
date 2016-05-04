@@ -4,7 +4,7 @@
  * 1.0v
  * Clase para la prueba del tiro parabolico
  */
-package tiroParabolico;
+/*package tiroParabolico;
 
 import java.awt.Dimension;
 
@@ -22,4 +22,4 @@ public class Principal {
 		prueba.setVisible(true);
 		
 	}
-}
+}*/
