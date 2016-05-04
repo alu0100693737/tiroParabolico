@@ -11,6 +11,7 @@ package tiroParabolico;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.JPanel;
@@ -25,6 +26,7 @@ public class pnlAplicacion extends JPanel {
 	private Color colorBola;
 	private int contadorBolaMovil;
 	private boolean esPintarRastro;
+	private boolean esPintarLinea;
 	
 	private ModeloTiroParabolico modelo;
 	private ArrayList<ModeloTiroParabolico> arrayTirosParabolicos;
@@ -50,6 +52,7 @@ public class pnlAplicacion extends JPanel {
 
 	public void pintarEjes(Graphics g) {
 		g.setColor(Color.BLACK);
+		
 		g.drawLine(MARGEN, getHeight() - MARGEN, MARGEN, MARGEN); 
 		g.drawLine(MARGEN, getHeight() - MARGEN, getWidth() - MARGEN, getHeight() - MARGEN ); 
 		for (int i = MARGEN; i < (getWidth() - MARGEN ); i+=10) {
@@ -80,11 +83,16 @@ public class pnlAplicacion extends JPanel {
 	
 	public void pintarPuntoLanzamiento() {
 		Graphics g2 = getGraphics();
-		
+
 		if(!getpintarRastro())
 			paint(g2);
 		g2.setColor(getColorBola());
 		g2.fillOval(MARGEN + getArrayTirosParabolicos().get(getArrayTirosParabolicos().size() - 1).getPuntos().get(getContadorBolaMovil()).x, getHeight() - MARGEN - getArrayTirosParabolicos().get(getArrayTirosParabolicos().size() - 1).getPuntos().get(getContadorBolaMovil()).y, RADIO, RADIO);
+	//linea desde el origen hasta la bola
+		g2.setColor(Color.BLACK);	
+		if(getPintarLinea()) {
+			g2.drawLine(MARGEN, getHeight() - MARGEN, MARGEN + getArrayTirosParabolicos().get(getArrayTirosParabolicos().size() - 1).getPuntos().get(getContadorBolaMovil()).x + RADIO/2, getHeight() - MARGEN - getArrayTirosParabolicos().get(getArrayTirosParabolicos().size() - 1).getPuntos().get(getContadorBolaMovil()).y + RADIO/2);
+		}
 	}
 	
 	public int getContadorBolaMovil() {
@@ -110,5 +118,13 @@ public class pnlAplicacion extends JPanel {
 	
 	public void setpintarRastro(boolean valor) {
 		esPintarRastro = valor;
+	}
+	
+	public boolean getPintarLinea() {
+		return esPintarLinea;
+	}
+	
+	public void setPintarLinea(boolean valor) {
+		esPintarLinea = valor;
 	}
 }

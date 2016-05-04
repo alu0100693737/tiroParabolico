@@ -16,7 +16,7 @@ public class txtInfo {
 	private final static etiqueta ALTURAINICIAL = new etiqueta("Altura Inicial ");
 	private final static etiqueta MOSTRARVELOCIDADES = new etiqueta("Mostrar velocidades");
 	private final static etiqueta MOSTRARRASTRO = new etiqueta("Mostrar rastro");
-	private final static etiqueta MOSTRARVECTORPOSICION = new etiqueta("Mostrar vector de posicion");
+	private final static etiqueta MOSTRARLINEAORIGEN = new etiqueta("Mostrar linea desde Origen");
 
 	public txtInfo() {
 		arrayMedidasIniciales = new ArrayList<etiqueta>();
@@ -25,7 +25,7 @@ public class txtInfo {
 		getArrayMedidasIniciales().add(ANGULOINICIAL);
 		getArrayMedidasIniciales().add(MOSTRARRASTRO);
 		getArrayMedidasIniciales().add(ALTURAINICIAL);
-		getArrayMedidasIniciales().add(MOSTRARVECTORPOSICION);
+		getArrayMedidasIniciales().add(MOSTRARLINEAORIGEN);
 		
 	}
 	

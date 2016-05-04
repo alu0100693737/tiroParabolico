@@ -35,7 +35,7 @@ public class subpnlOpciones extends JPanel {
 	private Checkbox checkbox;
 	private arrayMedida medidas = new arrayMedida();
 
-	public subpnlOpciones(int indice, int boton, botonContainer botones, txtInfo txttextos, double dato,int tipoSubpanel) {
+	public subpnlOpciones(int indice, int boton, botonContainer botones, txtInfo txttextos, double dato,boolean tipoSubpanel) {
 		setLayout(new GridLayout(1, 3, 5, 5));
 		add(botones.getArraybtn().get(boton));
 
@@ -58,7 +58,7 @@ public class subpnlOpciones extends JPanel {
 		getSlider().addChangeListener(new SliderListener());
 
 
-		if(tipoSubpanel == 1) { 										//panel con el ultimo elemento panel con checkbox
+		if(tipoSubpanel == false) { 										//panel con el ultimo elemento panel con checkbox
 			//checkbox con jlb
 			setCheckBox(new Checkbox());
 			JPanel aux = new JPanel();
@@ -67,14 +67,10 @@ public class subpnlOpciones extends JPanel {
 			aux.add(txttextos.getArrayMedidasIniciales().get(indice + 1));
 			add(aux);
 			setBackground(Color.WHITE);
-		} else if (tipoSubpanel == 0){
+		} else {
 			setEntradaDatos(new pnlEntradaDatos());
 			add(getEntradaDatos());
-		} else if(tipoSubpanel == 2) {
-			JPanel aux = new JPanel();
-			aux.setBackground(COLORNOMBRE);
-			aux.add(new etiqueta("Iván García Campos"));
-			add(aux);
+		
 		}
 	}
 

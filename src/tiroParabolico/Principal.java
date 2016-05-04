@@ -18,7 +18,7 @@ public class Principal {
 
 		prueba.setLocationRelativeTo(null); // Center the frame
 		prueba.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		prueba.setMinimumSize(new Dimension(1000, 550));
+		prueba.setMinimumSize(new Dimension(1050, 550));
 		prueba.setVisible(true);
 		
 	}

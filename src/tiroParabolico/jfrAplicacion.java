@@ -83,6 +83,12 @@ public class jfrAplicacion extends JFrame {
 				} else {
 					getAplicacion().setpintarRastro(false);
 				}
+				
+				if(getOpciones().getsubpnlOpciones3().getCheckBox().getState()) {
+					getAplicacion().setPintarLinea(true);
+				} else {
+					getAplicacion().setPintarLinea(false);
+				}
 				getAplicacion().setColorBola();
 				getTempo().stop();
 				getAplicacion().getArrayTirosParabolicos().add(new ModeloTiroParabolico(Integer.parseInt(getOpciones().getsubpnlOpciones1().getValorp2().getText()), 
@@ -146,7 +152,7 @@ public class jfrAplicacion extends JFrame {
 			getTempo().stop();
 			getOpciones().getArrayBotones().getPausa().setText("Pausar");
 			getAplicacion().getArrayTirosParabolicos().clear();	
-			//getAplicacion().repaint();
+			getAplicacion().repaint();
 		}
 	}
 }
