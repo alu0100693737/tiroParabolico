@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 
 public class pnlAplicacion extends JPanel {
 
-	private final static int MARGEN = 50;
+	final static int MARGEN = 50;
 	private final static int PALITO = 5;
 	private final static int RADIO = 7;
 	private final static int RANGORGB = 255;
@@ -26,16 +26,13 @@ public class pnlAplicacion extends JPanel {
 	
 	private ModeloTiroParabolico modelo;
 	private ArrayList<ModeloTiroParabolico> arrayTirosParabolicos;
-	private static pnlInformacion informacion;
 
 	public pnlAplicacion() {
 		setBackground(Color.WHITE);
 		setLayout(null);
 		setPreferredSize(new Dimension(700, 400));
 		setSize(new Dimension(700, 400));
-		setInformacion(new pnlInformacion());
 		arrayTirosParabolicos = new ArrayList<ModeloTiroParabolico>();
-		add(getInformacion());
 	}
 
 	public ArrayList<ModeloTiroParabolico> getArrayTirosParabolicos() {
@@ -43,16 +40,7 @@ public class pnlAplicacion extends JPanel {
 	}
 
 	@Override
-	public void paintComponents(Graphics g) {
-		getInformacion().setBounds(getWidth() - 180, 0, 180, (int)(getHeight() * 0.65));
-		// TODO Auto-generated method stub
-		super.paintComponents(g);
-		
-	}
-	
-	@Override
 	public void paint(Graphics g) {
-		getInformacion().setBounds(getWidth() - 180, 0, 180, (int)(getHeight() * 0.65));
 		// TODO Auto-generated method stub
 		super.paint(g);
 		pintarEjes(g);
@@ -81,7 +69,6 @@ public class pnlAplicacion extends JPanel {
 		Graphics g2 = getGraphics();
 		setColorBola();
 		g2.setColor(getColorBola());
-		System.out.println("Tamano " + getArrayTirosParabolicos().size());
 		while(getContadorBolaMovil() < getArrayTirosParabolicos().get(getArrayTirosParabolicos().size() - 1).getPuntos().size()) {
 			pintarPuntoLanzamiento();
 			setContadorBolaMovil(getContadorBolaMovil() + 1); 
@@ -91,26 +78,43 @@ public class pnlAplicacion extends JPanel {
 	
 	public void pintarPuntoLanzamiento() {
 		Graphics g2 = getGraphics();
-		getInformacion().jlbsetValorTiempo(getContadorBolaMovil() * 0.1);
-		getInformacion().jlbsetValorX(getArrayTirosParabolicos().get(getArrayTirosParabolicos().size() - 1).getPuntos().get(getContadorBolaMovil()).x);
-		getInformacion().jlbsetValorY(getHeight() - MARGEN - getArrayTirosParabolicos().get(getArrayTirosParabolicos().size() - 1).getPuntos().get(getContadorBolaMovil()).y);
-		getInformacion().jlbsetVX(getArrayTirosParabolicos().get(getArrayTirosParabolicos().size() - 1).getVelocidadInicialX());
-		getInformacion().jlbsetVY(getArrayTirosParabolicos().get(getArrayTirosParabolicos().size() - 1).getVelocidadInicialY());
-		getInformacion().jlbsetV(getArrayTirosParabolicos().get(getArrayTirosParabolicos().size() - 1).getCalcularVelocidad(getContadorBolaMovil() * 0.1));
+		//add(getInformacion().getTiempo());
+
+	/*	getPosicionX().add(new etiqueta("x = "));
+		getPosicionX().add(jlbgetValorX());
+		getPosicionX().add(new etiqueta("m"));
+		add(getPosicionX());
+
+		getPosicionY().add(new etiqueta("y = "));
+		getPosicionY().add(jlbgetValorY());
+		getPosicionY().add(new etiqueta("m"));
+		add(getPosicionY());
+
+		getVelocidadX().add(new etiqueta("vx = "));
+		getVelocidadX().add(jlbgetVX());
+		getVelocidadX().add(new etiqueta("m/s"));
+		add(getVelocidadX());
+
+		getVelocidadY().add(new etiqueta("vy = "));
+		getVelocidadY().add(jlbgetVY());
+		getVelocidadY().add(new etiqueta("m/s"));
+		add(getVelocidadY());
+
+		getVelocidad().add(new etiqueta("v = "));
+		getVelocidad().add(jlbgetV());
+		getVelocidad().add(new etiqueta("m/s"));
+		add(getVelocidad());
+
+		getYMax().add(new etiqueta("ymax = "));
+		getYMax().add(jlbgetYMax());
+		getYMax().add(new etiqueta("m"));
+		add(getYMax());
+		*/
+		
 		if(!getpintarRastro())
 			paint(g2);
 		g2.setColor(getColorBola());
 		g2.fillOval(MARGEN + getArrayTirosParabolicos().get(getArrayTirosParabolicos().size() - 1).getPuntos().get(getContadorBolaMovil()).x, getHeight() - MARGEN - getArrayTirosParabolicos().get(getArrayTirosParabolicos().size() - 1).getPuntos().get(getContadorBolaMovil()).y, RADIO, RADIO);
-		
-		//getInformacion().repaint();
-	}
-	
-	public static pnlInformacion getInformacion() {
-		return informacion;
-	}
-
-	public void setInformacion(pnlInformacion valor) {
-		informacion = valor;
 	}
 	
 	public int getContadorBolaMovil() {

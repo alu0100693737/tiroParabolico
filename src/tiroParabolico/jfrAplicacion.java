@@ -10,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.PaintEvent;
 import java.lang.reflect.GenericArrayType;
+import java.util.ArrayList;
 import java.util.Random;
 
 import javax.jws.WebParam.Mode;
@@ -25,17 +26,23 @@ public class jfrAplicacion extends JFrame {
 	private static pnlAplicacion aplicacion;
 	private static pnlOpciones opciones;
 	private static Timer tempo;
+	private static pnlInformacion informacion;
 
 	public jfrAplicacion() {
 		setAplicacion(new pnlAplicacion());
 		tempo = new Timer(100, new timerHandler());
 
 		setLayout(new BorderLayout());
+		
+		setInformacion(new pnlInformacion());
+		add(getInformacion());
+		
 		setOpciones(new pnlOpciones());
 		add(getAplicacion(), BorderLayout.CENTER);
+		add(getInformacion(), BorderLayout.EAST);
 		add(getOpciones(), BorderLayout.SOUTH);
 	}
-
+	
 	public static  pnlAplicacion getAplicacion() {
 		return aplicacion;
 	}
@@ -54,6 +61,14 @@ public class jfrAplicacion extends JFrame {
 
 	public static Timer getTempo() {
 		return tempo;
+	}
+	
+	public static pnlInformacion getInformacion() {
+		return informacion;
+	}
+
+	public void setInformacion(pnlInformacion valor) {
+		informacion = valor;
 	}
 
 	public static class botonLanzarListener implements ActionListener {
@@ -112,7 +127,22 @@ public class jfrAplicacion extends JFrame {
 			//calcula uno por uno
 			if(getAplicacion().getContadorBolaMovil() < getAplicacion().getArrayTirosParabolicos().get(getAplicacion().getArrayTirosParabolicos().size() - 1).getPuntos().size()) {
 				getAplicacion().pintarPuntoLanzamiento();
-				getAplicacion().setContadorBolaMovil(getAplicacion().getContadorBolaMovil() + 1); 
+				getAplicacion().setContadorBolaMovil(getAplicacion().getContadorBolaMovil() + 1);  
+				
+				getInformacion().jlbsetValorTiempo(Math.floor(getAplicacion().getContadorBolaMovil() * 0.1 * 100) / 100);
+				getInformacion().jlbsetValorX(getAplicacion().getArrayTirosParabolicos().get(getAplicacion().getArrayTirosParabolicos().size() - 1).getPuntos().get(getAplicacion().getContadorBolaMovil()).x);
+				getInformacion().jlbsetValorY(getAplicacion().getHeight() - getAplicacion().MARGEN - getAplicacion().getArrayTirosParabolicos().get(getAplicacion().getArrayTirosParabolicos().size() - 1).getPuntos().get(getAplicacion().getContadorBolaMovil()).y);
+				getInformacion().jlbsetVX(Math.floor(getAplicacion().getArrayTirosParabolicos().get(getAplicacion().getArrayTirosParabolicos().size() - 1).getVelocidadInicialX()));
+				getInformacion().jlbsetVY(Math.floor(getAplicacion().getArrayTirosParabolicos().get(getAplicacion().getArrayTirosParabolicos().size() - 1).getVelocidadInicialY()));
+				getInformacion().jlbsetV(Math.floor(getAplicacion().getArrayTirosParabolicos().get(getAplicacion().getArrayTirosParabolicos().size() - 1).getCalcularVelocidad(Math.floor(getAplicacion().getContadorBolaMovil() * 0.1))));
+				getInformacion().jlbsetYMax(Math.floor(getAplicacion().getArrayTirosParabolicos().get(getAplicacion().getArrayTirosParabolicos().size() - 1).getYMax()));
+
+				getInformacion().actualizarPanelesInfo();
+				
+				
+				/*
+				getInformacion().jlbgetValorTiempo().repaint();
+			*/
 			} else {
 				getAplicacion().setContadorBolaMovil(0);
 				getTempo().stop();
@@ -126,7 +156,7 @@ public class jfrAplicacion extends JFrame {
 			getTempo().stop();
 			getOpciones().getArrayBotones().getPausa().setText("Pausar");
 			getAplicacion().getArrayTirosParabolicos().clear();	
-			getAplicacion().repaint();
+			//getAplicacion().repaint();
 		}
 	}
 }

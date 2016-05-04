@@ -71,6 +71,10 @@ public class ModeloTiroParabolico {
 		double aux2 = getcalcularVelocidadY(tiempo) * getcalcularVelocidadY(tiempo);
 		return Math.sqrt(aux1 + aux2);
 	}
+	
+	public double getYMax() {
+		return ((getVelocidadInicial() * getVelocidadInicial()) / (2 * GRAVEDAD));
+	}
 
 	public void calcularPuntos() {
 		double i= 0;

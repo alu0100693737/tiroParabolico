@@ -9,6 +9,7 @@ import java.awt.GridLayout;
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.RepaintManager;
 
 public class pnlInformacion extends JPanel {
 
@@ -26,60 +27,10 @@ public class pnlInformacion extends JPanel {
 		velocidadY = new subpanelinfo();
 		velocidad = new subpanelinfo();
 		YMax = new subpanelinfo();
-		jlbsetValorTiempo(0); 
-		jlbsetValorX(0); jlbsetValorY(0);
-		jlbsetVX(0); jlbsetVY(0);
-		jlbsetV(0); jlbsetYMax(0);
-
-		getTiempo().add(new etiqueta("t = "));
-		getTiempo().add(jlbgetValorTiempo());
-		getTiempo().add(new etiqueta("s"));
-		add(getTiempo());
-
-		getPosicionX().add(new etiqueta("x = "));
-		getPosicionX().add(jlbgetValorX());
-		getPosicionX().add(new etiqueta("m"));
-		add(getPosicionX());
-
-		getPosicionY().add(new etiqueta("y = "));
-		getPosicionY().add(jlbgetValorY());
-		getPosicionY().add(new etiqueta("m"));
-		add(getPosicionY());
-
-		getVelocidadX().add(new etiqueta("vx = "));
-		getVelocidadX().add(jlbgetVX());
-		getVelocidadX().add(new etiqueta("m/s"));
-		add(getVelocidadX());
-
-		getVelocidadY().add(new etiqueta("vy = "));
-		getVelocidadY().add(jlbgetVY());
-		getVelocidadY().add(new etiqueta("m/s"));
-		add(getVelocidadY());
-
-		getVelocidad().add(new etiqueta("v = "));
-		getVelocidad().add(jlbgetV());
-		getVelocidad().add(new etiqueta("m/s"));
-		add(getVelocidad());
-
-		getYMax().add(new etiqueta("ymax = "));
-		getYMax().add(jlbgetYMax());
-		getYMax().add(new etiqueta("m"));
-		add(getYMax());
-	}
-	
-	@Override
-	public void repaint() {
-		// TODO Auto-generated method stub
-		super.repaint();
 		
+		iniciarPanel();
 	}
 	
-	@Override
-	public void paintComponents(Graphics g) {
-		// TODO Auto-generated method stub
-		super.paintComponents(g);
-	}
-
 	public etiqueta jlbgetValorTiempo() {
 		return valorTiempo;
 	}
@@ -139,6 +90,10 @@ public class pnlInformacion extends JPanel {
 	public subpanelinfo getTiempo() {
 		return tiempo;
 	}
+	
+	public void setTiempo(subpanelinfo valor) {
+		tiempo = valor;
+	}
 
 	public subpanelinfo getPosicionX() {
 		return posicionX;
@@ -162,5 +117,95 @@ public class pnlInformacion extends JPanel {
 
 	public subpanelinfo getYMax() {
 		return YMax;
+	}
+	
+	public void iniciarPanel() {
+
+		jlbsetValorTiempo(0); 
+		jlbsetValorX(0); jlbsetValorY(0);
+		jlbsetVX(0); jlbsetVY(0);
+		jlbsetV(0); jlbsetYMax(0);
+		
+		getTiempo().add(new etiqueta("t = "));
+		getTiempo().add(jlbgetValorTiempo());
+		getTiempo().add(new etiqueta("s"));
+		add(getTiempo());
+
+		getPosicionX().add(new etiqueta("x = "));
+		getPosicionX().add(jlbgetValorX());
+		getPosicionX().add(new etiqueta("m"));
+		add(getPosicionX());
+
+		getPosicionY().add(new etiqueta("y = "));
+		getPosicionY().add(jlbgetValorY());
+		getPosicionY().add(new etiqueta("m"));
+		add(getPosicionY());
+
+		getVelocidadX().add(new etiqueta("vx = "));
+		getVelocidadX().add(jlbgetVX());
+		getVelocidadX().add(new etiqueta("m/s"));
+		add(getVelocidadX());
+
+		getVelocidadY().add(new etiqueta("vy = "));
+		getVelocidadY().add(jlbgetVY());
+		getVelocidadY().add(new etiqueta("m/s"));
+		add(getVelocidadY());
+
+		getVelocidad().add(new etiqueta("v = "));
+		getVelocidad().add(jlbgetV());
+		getVelocidad().add(new etiqueta("m/s"));
+		add(getVelocidad());
+
+		getYMax().add(new etiqueta("ymax = "));
+		getYMax().add(jlbgetYMax());
+		getYMax().add(new etiqueta("m"));
+		add(getYMax());
+	}
+	
+	public void actualizarPanelesInfo() {		
+		getTiempo().removeAll();
+		getTiempo().add(new etiqueta("t = "));
+		getTiempo().add(jlbgetValorTiempo());
+		getTiempo().add(new etiqueta("s"));
+		add(getTiempo());
+
+		getPosicionX().removeAll();
+		getPosicionX().add(new etiqueta("x = "));
+		getPosicionX().add(jlbgetValorX());
+		getPosicionX().add(new etiqueta("m"));
+		add(getPosicionX());
+		
+		getPosicionY().removeAll();
+		getPosicionY().add(new etiqueta("y = "));
+		getPosicionY().add(jlbgetValorY());
+		getPosicionY().add(new etiqueta("m"));
+		add(getPosicionY());
+
+		getVelocidadX().removeAll();
+		getVelocidadX().add(new etiqueta("vx Inicial = "));
+		getVelocidadX().add(jlbgetVX());
+		getVelocidadX().add(new etiqueta("m/s"));
+		add(getVelocidadX());
+
+		getVelocidadY().removeAll();
+		getVelocidadY().add(new etiqueta("vy Inicial = "));
+		getVelocidadY().add(jlbgetVY());
+		getVelocidadY().add(new etiqueta("m/s"));
+		add(getVelocidadY());
+
+		getVelocidad().removeAll();
+		getVelocidad().add(new etiqueta("v = "));
+		getVelocidad().add(jlbgetV());
+		getVelocidad().add(new etiqueta("m/s"));
+		add(getVelocidad());
+
+		getYMax().removeAll();
+		getYMax().add(new etiqueta("ymax = "));
+		getYMax().add(jlbgetYMax());
+		getYMax().add(new etiqueta("m"));
+		add(getYMax());
+		
+		getTiempo().updateUI();
+		getTiempo().repaint();
 	}
 }

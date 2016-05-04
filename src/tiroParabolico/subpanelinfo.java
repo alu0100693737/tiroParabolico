@@ -24,15 +24,4 @@ public class subpanelinfo extends JPanel {
 		setBorder(compound);
 		setFont(new Font("Comic Sans MS", Font.BOLD, 18));
 	}
-	@Override
-	public void repaint() {
-		// TODO Auto-generated method stub
-		super.repaint();
-	}
-	
-	@Override
-	public void paintComponents(Graphics g) {
-		// TODO Auto-generated method stub
-		super.paintComponents(g);
-	}
 }
